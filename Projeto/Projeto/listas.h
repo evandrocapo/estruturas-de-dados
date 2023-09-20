@@ -5,11 +5,12 @@
 
 typedef struct noLista {
     Tarefa *tarefa;
-    int *prox;
+    struct noLista *prox;
 } NoLista;
 
-NoLista *insereLista(NoLista *recebido, int valor);
+NoLista *insereLista(void);
 NoLista *removerLista(NoLista *recebido);
+void editarItemDaLista(NoLista *recebido);
 int vazio(NoLista *recebido);
 void leitura(NoLista *recebido);
 int existeValor(NoLista *recebido, int valor);

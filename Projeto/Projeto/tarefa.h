@@ -18,6 +18,7 @@ typedef struct tarefa {
     int prioridade;
 } Tarefa;
 
-Tarefa *criarTarefa();
+Tarefa *criarTarefa(void);
+void editarTarefa(Tarefa *tarefa);
 
 #endif // TAREFA_H_INCLUDED

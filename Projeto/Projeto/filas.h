@@ -8,9 +8,9 @@ typedef struct fila {
     NoLista *fim;
 } Fila;
 
-Fila *criarFila();
 Fila *insereFila(Fila *recebido);
 Fila *removerFila(Fila *recebido);
+void *editarItemDaFila(Fila *recebido, int code);
 int filaVazio(Fila *recebido);
 void filaLeitura(Fila *recebido);
 int filaExisteValor(Fila *recebido, int valor);

@@ -9,20 +9,62 @@
 #include "listas.h"
 #include <stdlib.h>
 
+int filaEstaNula(Fila *recebido);
+int filaVazio(Fila *recebido);
+Fila *criarFila(void);
+NoLista *procurarItemNaFila(Fila *recebido, int code);
+
 Fila *insereFila(Fila *recebido) {
-    Fila aux;
+    int filaNula = filaEstaNula(recebido);
+    
+    if(filaNula){
+        recebido = criarFila();
+    }
+    
     int filaEstaVazia = filaVazio(recebido);
 
-    // se a fila estiver vazia
-    // então é preciso:
-    // 1 - criar uma fila
-    // 2 - inserir uma lista no inicio e no fim da fila
-    // 3 - inserir uma tarefa dentro do ListaNo
     if(filaEstaVazia){
-        recebido = criarFila();
+        recebido->inicio = insereLista();
+        recebido->fim = recebido->inicio;
+    } else {
+        recebido->fim->prox = insereLista();
+        recebido->fim = recebido->fim->prox;
     }
 
     return recebido;
+}
+
+void *editarItemDaFila(Fila *recebido, int code) {
+    int filaNula = filaEstaNula(recebido);
+    
+    if(filaNula){
+        return recebido;
+    }
+    
+    NoLista *lista = procurarItemNaFila(recebido, code);
+    
+    if(lista != NULL){
+        editarItemDaLista(lista);
+    }
+    
+    return recebido;
+}
+
+NoLista *procurarItemNaFila(Fila *recebido, int code){
+    NoLista *lista = recebido->inicio;
+    do {
+        if(lista->tarefa->code == code){
+            return lista;
+        }
+    } while(recebido != NULL);
+    return NULL;
+}
+
+int filaEstaNula(Fila *recebido){
+    if(recebido == NULL){
+        return 1;
+    }
+    return 0;
 }
 
 int filaVazio(Fila *recebido){
@@ -30,11 +72,7 @@ int filaVazio(Fila *recebido){
     return 0;
 }
 
-Fila *criarFila(){
+Fila *criarFila(void){
         Fila *fila = malloc((Fila *) sizeof(Fila));
-        NoLista *lista = malloc((NoLista *) sizeof(NoLista)); // criar uma funcao para criar lista
-        fila->inicio = lista;
-        fila->fim = lista;
-
         return fila;
 }
