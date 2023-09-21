@@ -13,14 +13,15 @@ int filaEstaNula(Fila *recebido);
 int filaVazio(Fila *recebido);
 Fila *criarFila(void);
 NoLista *procurarItemNaFila(Fila *recebido, int code);
+NoLista *procurarItemNaFilaERemover(Fila **recebido, int code);
 
 Fila *insereFila(Fila *recebido) {
     int filaNula = filaEstaNula(recebido);
-    
+
     if(filaNula){
         recebido = criarFila();
     }
-    
+
     int filaEstaVazia = filaVazio(recebido);
 
     if(filaEstaVazia){
@@ -36,17 +37,17 @@ Fila *insereFila(Fila *recebido) {
 
 void *editarItemDaFila(Fila *recebido, int code) {
     int filaNula = filaEstaNula(recebido);
-    
+
     if(filaNula){
         return recebido;
     }
-    
+
     NoLista *lista = procurarItemNaFila(recebido, code);
-    
+
     if(lista != NULL){
         editarItemDaLista(lista);
     }
-    
+
     return recebido;
 }
 
@@ -55,6 +56,29 @@ NoLista *procurarItemNaFila(Fila *recebido, int code){
     do {
         if(lista->tarefa->code == code){
             return lista;
+        }
+    } while(recebido != NULL);
+    return NULL;
+}
+
+NoLista *procurarItemNaFilaERemover(Fila **recebido, int code){
+    Fila *recebidoAux = recebido;
+    NoLista *lista = recebidoAux->inicio;
+    NoLista *aux = NULL;
+
+    if(lista->tarefa->code == code){
+        aux = lista;
+        lista = lista->prox;
+
+        return aux;
+    }
+
+    do {
+        if(lista->prox->tarefa->code == code){
+            aux = lista->prox;
+            lista->prox = aux->prox;
+
+            return aux;
         }
     } while(recebido != NULL);
     return NULL;
@@ -75,4 +99,31 @@ int filaVazio(Fila *recebido){
 Fila *criarFila(void){
         Fila *fila = malloc((Fila *) sizeof(Fila));
         return fila;
+}
+
+Fila *concluirTarefa(Fila *recebido, NoLista **lista, int code){
+    NoLista *listaAux = lista;
+    NoLista *listaRemovida = NULL;
+
+    int filaNula = filaEstaNula(recebido);
+
+    if(filaNula){
+        return recebido;
+    }
+
+    listaRemovida = procurarItemNaFilaERemover(recebido, code);
+
+    if(listaAux == NULL){
+        listaAux = listaRemovida;
+    } else {
+        int adicionado = 0;
+        do{
+            if(listaAux->prox == NULL){
+                listaAux->prox = listaRemovida;
+                adicionado = 1;
+            }
+        } while(adicionado == 0);
+    }
+
+    return recebido;
 }

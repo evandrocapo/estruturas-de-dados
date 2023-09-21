@@ -11,11 +11,12 @@
 #include "common.h"
 
 int menu(void);
-int solicitarCodigoDaTarefa(void);
+int solicitarCodigoDaTarefa(int opcao);
 
 int main(int argc, const char * argv[])  {
     int opcao = 0;
     Fila *fila = NULL;
+    NoLista *lista = NULL;
 
     do {
         opcao = menu();
@@ -24,10 +25,14 @@ int main(int argc, const char * argv[])  {
         if(opcao == 1){
             fila = insereFila(fila);
         } else if(opcao == 2){
-            solicitarCodigoDaTarefa();
-            editarItemDaFila(fila, 1);
+            int code;
+            code = solicitarCodigoDaTarefa(2);
+            editarItemDaFila(fila, code);
         } else if(opcao == 3){
-
+            int code;
+            NoLista *listaRemovido = NULL;
+            code = solicitarCodigoDaTarefa(3);
+            fila = concluirTarefa(fila, &lista, code);
         } else if(opcao == 4){
 
         } else if(opcao == 5){
@@ -62,10 +67,17 @@ int menu(void){
     return opcao;
 }
 
-int solicitarCodigoDaTarefa(void){
+int solicitarCodigoDaTarefa(int tipo){
     int code = 0;
-    printf("\nDigite o codigo da tarefa para edição: ");
+
+    if(tipo == 2){
+        printf("\nDigite o codigo da tarefa para edição: ");
+    } else  if(tipo == 3){
+        printf("\nDigite o codigo da tarefa para concluir: ");
+    } else {
+        printf("\nDigite o codigo da tarefa: ");
+    }
     scanf("%d", &code);
-    
+
     return code;
 }

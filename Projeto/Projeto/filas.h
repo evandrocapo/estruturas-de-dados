@@ -10,6 +10,7 @@ typedef struct fila {
 
 Fila *insereFila(Fila *recebido);
 Fila *removerFila(Fila *recebido);
+Fila *concluirTarefa(Fila *recebido, NoLista **lista, int code);
 void *editarItemDaFila(Fila *recebido, int code);
 int filaVazio(Fila *recebido);
 void filaLeitura(Fila *recebido);

@@ -1,28 +1,39 @@
 # depslib dependency file v1.0
-1695166416 source:c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\main.c
+1695326674 source:c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\main.c
 	<stdio.h>
 	<stdlib.h>
 	"filas.h"
+	"common.h"
 
-1695166867 source:c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\tarefa.c
+1695323416 source:c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\tarefa.c
 	"tarefa.h"
+	"common.h"
+	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1695155128 c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\tarefa.h
+1695323416 c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\tarefa.h
 
-1695166599 source:c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\filas.c
+1695326859 source:c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\filas.c
 	"filas.h"
 	"listas.h"
 	<stdlib.h>
 
-1695166625 c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\filas.h
+1695324520 c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\filas.h
 	"listas.h"
 
-1695090925 source:c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\listas.c
+1695323416 source:c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\listas.c
 	"listas.h"
+	"tarefa.h"
 	<stdlib.h>
 
-1695155019 c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\listas.h
+1695323416 c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\listas.h
 	"tarefa.h"
+
+1695323416 c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\common.h
+	<stdio.h>
+
+1695323416 source:c:\users\evandro\desktop\estruturas-de-dados\projeto\projeto\common.c
+	"common.h"
+	<stdlib.h>
 
