@@ -30,7 +30,6 @@ int main(int argc, const char * argv[])  {
             editarItemDaFila(fila, code);
         } else if(opcao == 3){
             int code;
-            NoLista *listaRemovido = NULL;
             code = solicitarCodigoDaTarefa(3);
             fila = concluirTarefa(fila, &lista, code);
         } else if(opcao == 4){

@@ -62,15 +62,19 @@ NoLista *procurarItemNaFila(Fila *recebido, int code){
 }
 
 NoLista *procurarItemNaFilaERemover(Fila **recebido, int code){
-    Fila *recebidoAux = recebido;
+    Fila *recebidoAux = *recebido;
     NoLista *lista = recebidoAux->inicio;
     NoLista *aux = NULL;
 
     if(lista->tarefa->code == code){
-        aux = lista;
-        lista = lista->prox;
+        if(recebidoAux->inicio == recebidoAux->fim){
+            recebidoAux->inicio = lista->prox;
+            recebidoAux->fim = lista->prox;
+        } else {
+            recebidoAux->inicio = lista->prox;
+        }
 
-        return aux;
+        return lista;
     }
 
     do {
@@ -102,7 +106,7 @@ Fila *criarFila(void){
 }
 
 Fila *concluirTarefa(Fila *recebido, NoLista **lista, int code){
-    NoLista *listaAux = lista;
+    NoLista *listaAux = *lista;
     NoLista *listaRemovida = NULL;
 
     int filaNula = filaEstaNula(recebido);
@@ -111,18 +115,21 @@ Fila *concluirTarefa(Fila *recebido, NoLista **lista, int code){
         return recebido;
     }
 
-    listaRemovida = procurarItemNaFilaERemover(recebido, code);
+    listaRemovida = procurarItemNaFilaERemover(&recebido, code);
+    listaRemovida->prox = NULL;
 
     if(listaAux == NULL){
-        listaAux = listaRemovida;
+        *lista = listaRemovida;
     } else {
         int adicionado = 0;
         do{
             if(listaAux->prox == NULL){
                 listaAux->prox = listaRemovida;
                 adicionado = 1;
+            } else {
+                listaAux = listaAux->prox;
             }
-        } while(adicionado == 0);
+        } while(adicionado == 0 && listaAux != NULL);
     }
 
     return recebido;
