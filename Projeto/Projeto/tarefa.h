@@ -20,5 +20,6 @@ typedef struct tarefa {
 
 Tarefa *criarTarefa(void);
 void editarTarefa(Tarefa *tarefa);
+void lerTarefa(Tarefa *tarefa);
 
 #endif // TAREFA_H_INCLUDED

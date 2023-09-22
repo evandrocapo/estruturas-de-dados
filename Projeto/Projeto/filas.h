@@ -15,5 +15,6 @@ void *editarItemDaFila(Fila *recebido, int code);
 int filaVazio(Fila *recebido);
 void filaLeitura(Fila *recebido);
 int filaExisteValor(Fila *recebido, int valor);
+void imprimirTarefasPendentes(Fila *fila);
 
 #endif // FILAS_H_INCLUDED

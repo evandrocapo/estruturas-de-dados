@@ -8,6 +8,7 @@
 #include "filas.h"
 #include "listas.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 int filaEstaNula(Fila *recebido);
 int filaVazio(Fila *recebido);
@@ -133,4 +134,16 @@ Fila *concluirTarefa(Fila *recebido, NoLista **lista, int code){
     }
 
     return recebido;
+}
+
+void imprimirTarefasPendentes(Fila *fila){
+    int filaEstaVazia = filaVazio(fila);
+    
+    if(filaEstaVazia){
+        printf("Nenhuma Tarefa Pendente!\n");
+        system("pause");
+    } else {
+        NoLista *lista = fila->inicio;
+        lerLista(lista);
+    }
 }

@@ -14,5 +14,5 @@ void editarItemDaLista(NoLista *recebido);
 int vazio(NoLista *recebido);
 void leitura(NoLista *recebido);
 int existeValor(NoLista *recebido, int valor);
-
+void lerLista(NoLista *recebido);
 #endif // LISTAS_H_INCLUDED

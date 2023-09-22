@@ -25,3 +25,10 @@ NoLista *criarLista(void){
 void editarItemDaLista(NoLista *recebido){
     editarTarefa(recebido->tarefa);
 }
+
+void lerLista(NoLista *recebido){
+    do {
+        lerTarefa(recebido->tarefa);
+        recebido = recebido->prox;
+    }while(recebido != NULL);
+}

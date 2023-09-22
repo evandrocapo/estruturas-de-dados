@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "filas.h"
+#include "listas.h"
 #include "common.h"
 
 int menu(void);
@@ -35,9 +36,9 @@ int main(int argc, const char * argv[])  {
         } else if(opcao == 4){
 
         } else if(opcao == 5){
-
+            imprimirTarefasPendentes(fila);
         } else if(opcao == 6){
-
+            lerLista(lista);
         } else if(opcao == 7){
 
         } else if(opcao == 8){

@@ -129,3 +129,12 @@ int menuAlteracaoTarefa(void){
     scanf("%d", &opcao);
     return opcao;
 }
+
+void lerTarefa(Tarefa *tarefa){
+    printf("Tarefa %d\n", tarefa->code);
+    printf("Nome: %s\n", tarefa->name);
+    printf("Projeto: %s\n", tarefa->projeto);
+    printf("Prioridade: %d\n", tarefa->prioridade);
+    printf("Data inicial: %d\n", tarefa->initialDate);
+    printf("Data final: %d\n\n", tarefa->finalDate);
+}
