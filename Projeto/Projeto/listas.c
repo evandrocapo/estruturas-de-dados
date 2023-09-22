@@ -8,6 +8,7 @@
 #include "listas.h"
 #include "tarefa.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 NoLista *criarLista(void);
 
@@ -31,4 +32,26 @@ void lerLista(NoLista *recebido){
         lerTarefa(recebido->tarefa);
         recebido = recebido->prox;
     }while(recebido != NULL);
+}
+
+void lerListaConcluidasComESemAtrasos(NoLista *recebido){
+    NoLista *listaAux = recebido;
+    
+    do {
+        printf("Tarefas Atrasadas\n\n");
+        if(listaAux->tarefa->status == 1){
+            lerTarefa(listaAux->tarefa);
+        }
+        listaAux = listaAux->prox;
+    } while(listaAux != NULL);
+    
+    listaAux = recebido;
+    
+    do {
+        printf("Tarefas Sem Atrasos\n\n");
+        if(listaAux->tarefa->status == 0){
+            lerTarefa(listaAux->tarefa);
+        }
+        listaAux = listaAux->prox;
+    } while(listaAux != NULL);
 }

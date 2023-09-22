@@ -40,7 +40,7 @@ int main(int argc, const char * argv[])  {
         } else if(opcao == 6){
             lerLista(lista);
         } else if(opcao == 7){
-
+            lerListaConcluidasComESemAtrasos(lista);
         } else if(opcao == 8){
             printf("\nSaindo do sistema\n");
         } else {
