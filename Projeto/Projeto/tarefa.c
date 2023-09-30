@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 int menuAlteracaoTarefa(void);
 
@@ -36,11 +37,6 @@ Tarefa *criarTarefa(void){
     scanf("%s", projeto);
     strcpy(tarefa->projeto, projeto);
 
-    int status;
-    printf("Digite o status: ");
-    scanf("%d", &status);
-    tarefa->status = status;
-
     int initialDate;
     printf("Digite a data inicial: ");
     scanf("%d", &initialDate);
@@ -50,7 +46,9 @@ Tarefa *criarTarefa(void){
     printf("Digite a data final: ");
     scanf("%d", &finalDate);
     tarefa->finalDate = finalDate;
-
+    
+    tarefa->status = 0;
+    
     return tarefa;
 }
 
@@ -70,7 +68,7 @@ void editarTarefa(Tarefa *tarefa){
             printf("Opção 1\n\n");
             
             printf("Digite o codigo da tarefa: ");
-            scanf("%d", code);
+            scanf("%d", &code);
             tarefa->code = code;
         } else if(opcao == 2){
             char name[30];
@@ -137,4 +135,21 @@ void lerTarefa(Tarefa *tarefa){
     printf("Prioridade: %d\n", tarefa->prioridade);
     printf("Data inicial: %d\n", tarefa->initialDate);
     printf("Data final: %d\n\n", tarefa->finalDate);
+}
+
+Tarefa *atualizarStatusDaTarefa(Tarefa *tarefa){
+    int diaAtual = obterDiaAtual();
+    int mesAtual = obterMesAtual();
+    int anoAtual = obterAnoAtual();
+    
+    if(tarefa->finalDate >= anoAtual){
+        if(tarefa->finalDate >= diaAtual){
+            if(tarefa->finalDate >= diaAtual){
+                return tarefa;
+            }
+        }
+    }
+    
+    tarefa->status = -1;
+    return tarefa;
 }

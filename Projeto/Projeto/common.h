@@ -11,5 +11,8 @@
 #include <stdio.h>
 
 void limparTela(void);
+int obterDiaAtual(void);
+int obterMesAtual(void);
+int obterAnoAtual(void);
 
 #endif /* common_h */
