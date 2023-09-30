@@ -8,8 +8,6 @@
 #ifndef common_h
 #define common_h
 
-#include <stdio.h>
-
 void limparTela(void);
 int obterDiaAtual(void);
 int obterMesAtual(void);
