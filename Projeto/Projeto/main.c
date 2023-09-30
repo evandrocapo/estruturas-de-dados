@@ -18,6 +18,7 @@ int main(int argc, const char * argv[])  {
     int opcao = 0;
     Fila *fila = NULL;
     NoLista *lista = NULL;
+    NoLista *listaPendente = NULL;
 
     do {
         opcao = menu();
@@ -34,7 +35,8 @@ int main(int argc, const char * argv[])  {
             code = solicitarCodigoDaTarefa(3);
             fila = concluirTarefa(fila, &lista, code);
         } else if(opcao == 4){
-
+            atualizarTarefasAtrasadas(fila);
+            fila = validarStatusDasTarefas(fila, &listaPendente);
         } else if(opcao == 5){
             imprimirTarefasPendentes(fila);
         } else if(opcao == 6){

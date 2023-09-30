@@ -147,3 +147,29 @@ void imprimirTarefasPendentes(Fila *fila){
         lerLista(lista);
     }
 }
+
+void atualizarTarefasAtrasadas(Fila *fila){
+    int filaEstaVazia = filaVazio(fila);
+    
+    if(filaEstaVazia != 1){
+        NoLista *lista;
+        for(lista = fila->inicio;lista != NULL; lista = lista->prox){
+            lista->tarefa = atualizarStatusDaTarefa(lista->tarefa);
+        }
+    }
+}
+
+Fila *validarStatusDasTarefas(Fila *fila, NoLista **lista){
+    int filaEstaVazia = filaVazio(fila);
+    
+    if(filaEstaVazia != 1){
+        NoLista *listaAux;
+        for(listaAux = fila->inicio;listaAux != NULL; listaAux = listaAux->prox){
+            if(listaAux->tarefa->status == -1){
+                fila = concluirTarefa(fila, lista, listaAux->tarefa->code);
+            }
+        }
+    }
+    
+    return fila;
+}

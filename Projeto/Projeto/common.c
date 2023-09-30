@@ -26,7 +26,7 @@ int obterMesAtual(void){
     tempoAtual = time(NULL);
     struct tm tm = *localtime(&tempoAtual);
     
-    return tm.tm_mon;
+    return tm.tm_mon + 1; // +1 porque o mes é retornado como -1
 }
 
 int obterAnoAtual(void){
@@ -34,5 +34,59 @@ int obterAnoAtual(void){
     tempoAtual = time(NULL);
     struct tm tm = *localtime(&tempoAtual);
     
-    return tm.tm_year;
+    int ano = 0; int mult = 1;
+    int i;
+    
+    for(i=0; i < 2; i++){
+        ano = (ano + (tm.tm_year % 10)* mult);
+        mult = mult * 10;
+        tm.tm_year = tm.tm_year / 10; // pode ocorrer erro de data por causa dessa alteração direta na memoria ?
+    }
+
+    ano = 2000 + ano;
+    
+    return ano;
+}
+
+int obterTarefaDia(int date){
+    int dia = 0; int mult = 1;
+    int i;
+    
+    date = date / 1000000;
+    
+    for(i=0; i < 2; i++){
+        dia = (dia + (date % 10)* mult);
+        mult = mult * 10;
+        date = date / 10;
+    }
+    
+    return dia;
+}
+
+int obterTarefaMes(int date){
+    int mes = 0; int mult = 1;
+    int i;
+    
+    date = date / 10000;
+    
+    for(i=0; i < 2; i++){
+        mes = (mes + (date % 10)* mult);
+        mult = mult * 10;
+        date = date / 10;
+    }
+    
+    return mes;
+}
+
+int obterTarefaAno(int date){
+    int ano = 0; int mult = 1;
+    int i;
+    
+    for(i=0; i < 4; i++){
+        ano = (ano + (date % 10)* mult);
+        mult = mult * 10;
+        date = date / 10;
+    }
+    
+    return ano;
 }

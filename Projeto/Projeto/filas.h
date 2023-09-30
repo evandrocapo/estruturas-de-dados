@@ -16,5 +16,7 @@ int filaVazio(Fila *recebido);
 void filaLeitura(Fila *recebido);
 int filaExisteValor(Fila *recebido, int valor);
 void imprimirTarefasPendentes(Fila *fila);
+void atualizarTarefasAtrasadas(Fila *fila);
+Fila *validarStatusDasTarefas(Fila *fila,NoLista **lista);
 
 #endif // FILAS_H_INCLUDED
