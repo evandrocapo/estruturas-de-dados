@@ -35,8 +35,12 @@ int main(int argc, const char * argv[])  {
             code = solicitarCodigoDaTarefa(3);
             fila = concluirTarefa(fila, &lista, code);
         } else if(opcao == 4){
-            atualizarTarefasAtrasadas(fila);
-            fila = validarStatusDasTarefas(fila, &listaPendente);
+            int code;
+            code = solicitarCodigoDaTarefa(4);
+            
+            fila = mudarStatusPendenteTarefa(fila, &listaPendente, code);
+//            atualizarTarefasAtrasadas(fila);
+//            fila = validarStatusDasTarefas(fila, &listaPendente);
         } else if(opcao == 5){
             imprimirTarefasPendentes(fila);
         } else if(opcao == 6){
@@ -76,6 +80,8 @@ int solicitarCodigoDaTarefa(int tipo){
         printf("\nDigite o codigo da tarefa para edição: ");
     } else  if(tipo == 3){
         printf("\nDigite o codigo da tarefa para concluir: ");
+    } else  if(tipo == 4){
+        printf("\nDigite o codigo da tarefa para trocar para pendente: ");
     } else {
         printf("\nDigite o codigo da tarefa: ");
     }

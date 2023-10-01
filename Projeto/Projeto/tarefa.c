@@ -146,6 +146,8 @@ Tarefa *atualizarStatusDaTarefa(Tarefa *tarefa){
     int tarefaMesAtual = obterTarefaMes(tarefa->finalDate);
     int tarefaAnoAtual = obterTarefaAno(tarefa->finalDate);
     
+    tarefa->finalDate = obterDataAtual();
+    
     if(tarefaAnoAtual >= anoAtual){
         if(tarefaMesAtual >= mesAtual){
             if(tarefaDiaAtual >= diaAtual){
@@ -153,7 +155,6 @@ Tarefa *atualizarStatusDaTarefa(Tarefa *tarefa){
             }
         }
     }
-    
     
     tarefa->status = 1;
     return tarefa;

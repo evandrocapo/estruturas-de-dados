@@ -1,6 +1,6 @@
 //
 //  common.h
-//  Projeto
+//  Common
 //
 //  Created by Evandro Douglas Capovilla Junior on 20/09/23.
 //
@@ -15,5 +15,6 @@ int obterAnoAtual(void);
 int obterTarefaDia(int date);
 int obterTarefaMes(int date);
 int obterTarefaAno(int date);
+int obterDataAtual(void);
 
-#endif // TAREFA_H_INCLUDED
+#endif // COMMON_H_INCLUDED

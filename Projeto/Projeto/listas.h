@@ -16,4 +16,5 @@ void leitura(NoLista *recebido);
 int existeValor(NoLista *recebido, int valor);
 void lerLista(NoLista *recebido);
 void lerListaConcluidasComESemAtrasos(NoLista *recebido);
+
 #endif // LISTAS_H_INCLUDED

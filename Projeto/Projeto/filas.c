@@ -118,6 +118,39 @@ Fila *concluirTarefa(Fila *recebido, NoLista **lista, int code){
 
     listaRemovida = procurarItemNaFilaERemover(&recebido, code);
     listaRemovida->prox = NULL;
+    
+    listaRemovida->tarefa = atualizarStatusDaTarefa(listaRemovida->tarefa);
+
+    if(listaAux == NULL){
+        *lista = listaRemovida;
+    } else {
+        int adicionado = 0;
+        do{
+            if(listaAux->prox == NULL){
+                listaAux->prox = listaRemovida;
+                adicionado = 1;
+            } else {
+                listaAux = listaAux->prox;
+            }
+        } while(adicionado == 0 && listaAux != NULL);
+    }
+
+    return recebido;
+}
+
+Fila *mudarStatusPendenteTarefa(Fila *recebido, NoLista **lista, int code){
+    NoLista *listaAux = *lista;
+    NoLista *listaRemovida = NULL;
+
+    int filaNula = filaEstaNula(recebido);
+
+    if(filaNula){
+        return recebido;
+    }
+
+    listaRemovida = procurarItemNaFilaERemover(&recebido, code);
+    listaRemovida->prox = NULL;
+    listaRemovida->tarefa->status = -1;
 
     if(listaAux == NULL){
         *lista = listaRemovida;

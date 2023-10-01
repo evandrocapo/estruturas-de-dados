@@ -90,3 +90,12 @@ int obterTarefaAno(int date){
     
     return ano;
 }
+
+int obterDataAtual(void){
+    int data = 0;
+    data = data + (obterDiaAtual() * 1000000);
+    data = data + (obterMesAtual() * 10000);
+    data = data + obterAnoAtual();
+    
+    return data;
+}
