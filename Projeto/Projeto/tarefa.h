@@ -23,5 +23,6 @@ void editarTarefa(Tarefa *tarefa);
 void lerTarefa(Tarefa *tarefa);
 Tarefa *atualizarStatusDaTarefa(Tarefa *tarefa);
 int tarefaUmMaiorTarefaDois(Tarefa *tarefa1, Tarefa *tarefa2);
+void limparTarefa(Tarefa *tarefa);
 
 #endif // TAREFA_H_INCLUDED

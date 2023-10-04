@@ -179,3 +179,7 @@ int tarefaUmMaiorTarefaDois(Tarefa *tarefa1, Tarefa *tarefa2){
     }
     return 0;
 }
+
+void limparTarefa(Tarefa *tarefa){
+    free(tarefa);
+}

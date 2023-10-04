@@ -34,11 +34,12 @@ int main(int argc, const char * argv[])  {
             int code;
             code = solicitarCodigoDaTarefa(3);
             fila = concluirTarefa(fila, &lista, code);
+            lista = ordenarLista(lista);
         } else if(opcao == 4){
             int code;
             code = solicitarCodigoDaTarefa(4);
-            
             fila = mudarStatusPendenteTarefa(fila, &listaPendente, code);
+            listaPendente = ordenarLista(listaPendente);
 //            atualizarTarefasAtrasadas(fila);
 //            fila = validarStatusDasTarefas(fila, &listaPendente);
         } else if(opcao == 5){
@@ -48,6 +49,9 @@ int main(int argc, const char * argv[])  {
         } else if(opcao == 7){
             lerListaConcluidasComESemAtrasos(lista);
         } else if(opcao == 8){
+            limparLista(lista);
+            limparLista(listaPendente);
+            limparFila(fila);
             printf("\nSaindo do sistema\n");
         } else {
             printf("\nOpcao invalida !\n");

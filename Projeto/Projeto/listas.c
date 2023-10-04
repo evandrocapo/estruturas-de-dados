@@ -86,3 +86,15 @@ NoLista *ordenarLista(NoLista *lista){
     
     return lista;
 };
+
+void limparLista(NoLista *lista){
+    NoLista *listaAux = lista->prox;
+    if(lista != NULL){
+        do{
+            limparTarefa(lista->tarefa);
+            free(lista);
+            lista = listaAux;
+            listaAux = lista->prox;
+        }while(lista != NULL);
+    }
+}

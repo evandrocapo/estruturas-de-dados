@@ -206,3 +206,11 @@ Fila *validarStatusDasTarefas(Fila *fila, NoLista **lista){
     
     return fila;
 }
+
+void limparFila(Fila *fila){
+    if(!filaVazio(fila)){
+        NoLista *lista = fila->inicio;
+        limparLista(lista);
+        free(lista);
+    }
+}
