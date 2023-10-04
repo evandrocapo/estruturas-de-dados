@@ -159,3 +159,22 @@ Tarefa *atualizarStatusDaTarefa(Tarefa *tarefa){
     tarefa->status = 1;
     return tarefa;
 }
+
+int tarefaUmMaiorTarefaDois(Tarefa *tarefa1, Tarefa *tarefa2){
+    int tarefaUmDiaAtual = obterTarefaDia(tarefa1->finalDate);
+    int tarefaUmMesAtual = obterTarefaMes(tarefa1->finalDate);
+    int tarefaUmAnoAtual = obterTarefaAno(tarefa1->finalDate);
+    
+    int tarefaDoisDiaAtual = obterTarefaDia(tarefa2->finalDate);
+    int tarefaDoisMesAtual = obterTarefaMes(tarefa2->finalDate);
+    int tarefaDoisAnoAtual = obterTarefaAno(tarefa2->finalDate);
+    
+    if(tarefaUmDiaAtual > tarefaDoisDiaAtual){
+        if(tarefaUmDiaAtual > tarefaDoisMesAtual){
+            if(tarefaUmDiaAtual > tarefaDoisAnoAtual){
+                return 1;
+            }
+        }
+    }
+    return 0;
+}

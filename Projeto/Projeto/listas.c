@@ -55,3 +55,34 @@ void lerListaConcluidasComESemAtrasos(NoLista *recebido){
         listaAux = listaAux->prox;
     } while(listaAux != NULL);
 }
+
+int tamanhoLista(NoLista *lista){
+    NoLista *aux;
+    int tam = 0;
+    
+    for(aux = lista; aux != NULL; aux = aux->prox){
+        tam++;
+    }
+    
+    return tam;
+};
+
+NoLista *ordenarLista(NoLista *lista){
+    int tam = tamanhoLista(lista) - 1;
+    
+    if(tam <= 1){
+        return lista;
+    }
+    
+    for(int i = 0; i < tam; i++){
+        for(int j = 0; j < tam; i++){
+            if(tarefaUmMaiorTarefaDois(lista->tarefa, lista->prox->tarefa)){
+                NoLista *listaAux = lista;
+                lista = lista->prox;
+                lista->prox = listaAux;
+            }
+        }
+    }
+    
+    return lista;
+};

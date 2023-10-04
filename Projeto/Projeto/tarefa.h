@@ -22,5 +22,6 @@ Tarefa *criarTarefa(void);
 void editarTarefa(Tarefa *tarefa);
 void lerTarefa(Tarefa *tarefa);
 Tarefa *atualizarStatusDaTarefa(Tarefa *tarefa);
+int tarefaUmMaiorTarefaDois(Tarefa *tarefa1, Tarefa *tarefa2);
 
 #endif // TAREFA_H_INCLUDED
