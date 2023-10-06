@@ -36,6 +36,26 @@ Fila *insereFila(Fila *recebido) {
     return recebido;
 }
 
+Fila *insereFilaComDados(Fila *recebido, NoLista *lista) {
+    int filaNula = filaEstaNula(recebido);
+
+    if(filaNula){
+        recebido = criarFila();
+    }
+
+    int filaEstaVazia = filaVazio(recebido);
+
+    if(filaEstaVazia){
+        recebido->inicio = lista;
+        recebido->fim = recebido->inicio;
+    } else {
+        recebido->fim->prox = lista;
+        recebido->fim = recebido->fim->prox;
+    }
+
+    return recebido;
+}
+
 void *editarItemDaFila(Fila *recebido, int code) {
     int filaNula = filaEstaNula(recebido);
 
@@ -58,7 +78,8 @@ NoLista *procurarItemNaFila(Fila *recebido, int code){
         if(lista->tarefa->code == code){
             return lista;
         }
-    } while(recebido != NULL);
+        lista = lista->prox;
+    } while(lista != NULL);
     return NULL;
 }
 
@@ -167,6 +188,20 @@ Fila *mudarStatusPendenteTarefa(Fila *recebido, NoLista **lista, int code){
     }
 
     return recebido;
+}
+
+Fila *mudarStatusNaoPendenteTarefa(Fila *recebido, NoLista **lista, int code){
+    NoLista *listaAux = *lista;
+    NoLista *listaRemovida = NULL;
+
+    int filaNula = filaEstaNula(recebido);
+
+    if(filaNula){
+        return recebido;
+    }
+    
+    listaRemovida = removerItemDaLista(lista, code);
+    return insereFila(recebido);
 }
 
 void imprimirTarefasPendentes(Fila *fila){

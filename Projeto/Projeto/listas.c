@@ -23,6 +23,29 @@ NoLista *criarLista(void){
     return lista;
 }
 
+NoLista *removerItemDaLista(NoLista **lista,int code){
+    NoLista *listaAux = *lista;
+
+    if(lista == NULL){
+        return listaAux;
+    }
+    
+    if(listaAux->tarefa->code == code){
+        *lista = listaAux->prox;
+        listaAux->prox = NULL;
+        return listaAux;
+    }
+    
+    for(listaAux = *lista; listaAux->prox != NULL; listaAux = listaAux->prox){
+        if(listaAux->prox->tarefa->code == code) {
+            listaAux->prox = listaAux->prox->prox;
+            return *lista;
+        }
+    }
+    
+    return *lista;
+};
+
 void editarItemDaLista(NoLista *recebido){
     editarTarefa(recebido->tarefa);
 }

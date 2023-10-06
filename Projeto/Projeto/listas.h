@@ -10,6 +10,7 @@ typedef struct noLista {
 
 NoLista *insereLista(void);
 NoLista *removerLista(NoLista *recebido);
+NoLista *removerItemDaLista(NoLista **lista,int code);
 void editarItemDaLista(NoLista *recebido);
 int vazio(NoLista *recebido);
 void leitura(NoLista *recebido);

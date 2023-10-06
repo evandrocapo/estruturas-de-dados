@@ -13,6 +13,7 @@
 
 int menu(void);
 int solicitarCodigoDaTarefa(int opcao);
+int solicitarAdicionarOuRemoverPendencia(void);
 
 int main(int argc, const char * argv[])  {
     int opcao = 0;
@@ -24,7 +25,9 @@ int main(int argc, const char * argv[])  {
         opcao = menu();
         limparTela();
 
-        if(opcao == 1){
+        if(opcao == 0){
+            lerLista(fila->inicio);
+        } else if(opcao == 1){
             fila = insereFila(fila);
         } else if(opcao == 2){
             int code;
@@ -38,7 +41,15 @@ int main(int argc, const char * argv[])  {
         } else if(opcao == 4){
             int code;
             code = solicitarCodigoDaTarefa(4);
-            fila = mudarStatusPendenteTarefa(fila, &listaPendente, code);
+            int tipo;
+            tipo = solicitarAdicionarOuRemoverPendencia();
+            if(tipo == 1){
+                fila = mudarStatusPendenteTarefa(fila, &listaPendente, code);
+            } else if (tipo == 2){
+                fila = mudarStatusNaoPendenteTarefa(fila, &listaPendente, code);
+            } else {
+                printf("\nOpcao nao encontrada!\n");
+            }
             listaPendente = ordenarLista(listaPendente);
 //            atualizarTarefasAtrasadas(fila);
 //            fila = validarStatusDasTarefas(fila, &listaPendente);
@@ -64,6 +75,7 @@ int main(int argc, const char * argv[])  {
 int menu(void){
     int opcao = 0;
     printf("\nDigite a opcao desejada:\n\n");
+    printf("0 - Listar todas as tarefas\n");
     printf("1 - Adicionar uma nova tarefa\n");
     printf("2 - Modificar uma Tarefa\n");
     printf("3 - Concluir Tarefa\n");
@@ -89,6 +101,17 @@ int solicitarCodigoDaTarefa(int tipo){
     } else {
         printf("\nDigite o codigo da tarefa: ");
     }
+    scanf("%d", &code);
+
+    return code;
+}
+
+int solicitarAdicionarOuRemoverPendencia(void){
+    int code = 0;
+
+    printf("\nDigite para adicionar ou remover pendencia!");
+    printf("\nDigite 1 para adicionar pendencia");
+    printf("\nDigite 2 para remover pendencia\n");
     scanf("%d", &code);
 
     return code;

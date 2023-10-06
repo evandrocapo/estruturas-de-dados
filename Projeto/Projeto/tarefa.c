@@ -131,7 +131,7 @@ int menuAlteracaoTarefa(void){
 void lerTarefa(Tarefa *tarefa){
     printf("Tarefa %d\n", tarefa->code);
     printf("Nome: %s\n", tarefa->name);
-    printf("Status: %s\n", tarefa->status);
+    printf("Status: %d\n", tarefa->status);
     printf("Projeto: %s\n", tarefa->projeto);
     printf("Prioridade: %d\n", tarefa->prioridade);
     printf("Data inicial: %d\n", tarefa->initialDate);
