@@ -94,6 +94,9 @@ NoLista *procurarItemNaFilaERemover(Fila **recebido, int code){
             recebidoAux->fim = lista->prox;
         } else {
             recebidoAux->inicio = lista->prox;
+            if(lista->prox == NULL){
+                recebidoAux->fim == NULL;
+            }
         }
 
         return lista;
@@ -106,7 +109,8 @@ NoLista *procurarItemNaFilaERemover(Fila **recebido, int code){
 
             return aux;
         }
-    } while(recebido != NULL);
+        lista = lista->prox;
+    } while(lista != NULL);
     return NULL;
 }
 
@@ -141,6 +145,25 @@ Fila *concluirTarefa(Fila *recebido, NoLista **lista, int code){
     listaRemovida->prox = NULL;
     
     listaRemovida->tarefa = atualizarStatusDaTarefa(listaRemovida->tarefa);
+    
+    if(recebido->inicio == listaRemovida){
+        recebido->inicio = listaRemovida->prox;
+    }
+    
+    if(recebido->fim == listaRemovida){
+        if(recebido->inicio == NULL){
+            recebido->fim = NULL; // precisar ser o anterior;
+        } else {
+            listaAux = recebido->inicio;
+            if(listaAux->prox != NULL){
+                do{
+                    listaAux = listaAux->prox;
+                }while(listaAux->prox != NULL);
+            }
+            recebido->fim = listaAux;
+            listaAux = *lista;
+        }
+    }
 
     if(listaAux == NULL){
         *lista = listaRemovida;
@@ -201,7 +224,8 @@ Fila *mudarStatusNaoPendenteTarefa(Fila *recebido, NoLista **lista, int code){
     }
     
     listaRemovida = removerItemDaLista(lista, code);
-    return insereFila(recebido);
+    listaRemovida->tarefa->status = 0;
+    return insereFilaComDados(recebido, listaRemovida);
 }
 
 void imprimirTarefasPendentes(Fila *fila){

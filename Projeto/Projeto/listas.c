@@ -98,7 +98,7 @@ NoLista *ordenarLista(NoLista *lista){
     }
     
     for(int i = 0; i < tam; i++){
-        for(int j = 0; j < tam; i++){
+        for(int j = 0; j < tam; j++){
             if(tarefaUmMaiorTarefaDois(lista->tarefa, lista->prox->tarefa)){
                 NoLista *listaAux = lista;
                 lista = lista->prox;
