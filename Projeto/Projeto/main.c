@@ -26,7 +26,9 @@ int main(int argc, const char * argv[])  {
         limparTela();
 
         if(opcao == 0){
-            lerLista(fila->inicio);
+            if(fila != NULL && fila->inicio != NULL){
+                lerLista(fila->inicio);
+            }
         } else if(opcao == 1){
             fila = insereFila(fila);
         } else if(opcao == 2){
@@ -51,18 +53,22 @@ int main(int argc, const char * argv[])  {
                 printf("\nOpcao nao encontrada!\n");
             }
             listaPendente = ordenarLista(listaPendente);
-//            atualizarTarefasAtrasadas(fila);
-//            fila = validarStatusDasTarefas(fila, &listaPendente);
         } else if(opcao == 5){
-            imprimirTarefasPendentes(fila);
+            if(fila != NULL && fila->inicio != NULL){
+                imprimirTarefasPendentes(fila);
+            }
         } else if(opcao == 6){
-            lerLista(lista);
+            if(lista != NULL){
+                lerLista(lista);
+            }
         } else if(opcao == 7){
-            lerListaConcluidasComESemAtrasos(lista);
+            if(lista != NULL){
+                lerListaConcluidasComESemAtrasos(lista);
+            }
         } else if(opcao == 8){
-            limparLista(lista);
-            limparLista(listaPendente);
-            limparFila(fila);
+                limparLista(lista);
+                limparLista(listaPendente);
+                limparFila(fila);
             printf("\nSaindo do sistema\n");
         } else {
             printf("\nOpcao invalida !\n");
