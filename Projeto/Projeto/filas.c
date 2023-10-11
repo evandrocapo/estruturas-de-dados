@@ -122,6 +122,7 @@ int filaEstaNula(Fila *recebido){
 }
 
 int filaVazio(Fila *recebido){
+    if(recebido == NULL) return 1;
     if(recebido->inicio == NULL) return 1;
     return 0;
 }
