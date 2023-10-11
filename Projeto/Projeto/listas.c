@@ -12,10 +12,22 @@
 
 NoLista *criarLista(void);
 
-NoLista *insereLista(void){
+NoLista *insereLista(int prioridade){
     NoLista *lista = criarLista();
-    lista->tarefa = criarTarefa();
+    lista->tarefa = criarTarefa(prioridade);
     return lista;
+}
+
+void insereListaComDados(NoLista **lista, NoLista *listaComDados){
+    NoLista *listaAux = *lista;
+    if(listaAux != NULL){
+        while(listaAux->prox != NULL){
+            listaAux = listaAux->prox;
+        }
+        listaAux->prox = listaComDados;
+    } else {
+        lista = &listaComDados;
+    }
 }
 
 NoLista *criarLista(void){

@@ -14,10 +14,13 @@
 int menu(void);
 int solicitarCodigoDaTarefa(int opcao);
 int solicitarAdicionarOuRemoverPendencia(void);
+int solicitarPrioridadeDaTarefa();
 
 int main(int argc, const char * argv[])  {
     int opcao = 0;
-    Fila *fila = NULL;
+    Fila *filaP1 = NULL;
+    Fila *filaP2 = NULL;
+    Fila *filaP3 = NULL;
     NoLista *lista = NULL;
     NoLista *listaPendente = NULL;
 
@@ -26,19 +29,38 @@ int main(int argc, const char * argv[])  {
         limparTela();
 
         if(opcao == 0){
-            if(fila != NULL && fila->inicio != NULL){
-                lerLista(fila->inicio);
+            if(filaP1 != NULL && filaP1->inicio != NULL){
+                lerLista(filaP1->inicio);
+            }
+            if(filaP2 != NULL && filaP2->inicio != NULL){
+                lerLista(filaP1->inicio);
+            }
+            if(filaP3 != NULL && filaP3->inicio != NULL){
+                lerLista(filaP1->inicio);
             }
         } else if(opcao == 1){
-            fila = insereFila(fila);
+            int prioridade = solicitarPrioridadeDaTarefa();
+            if(prioridade == 1){
+                filaP1 = insereFila(filaP1, prioridade);
+            }
+            if(prioridade == 2){
+                filaP2 = insereFila(filaP2, prioridade);
+            }
+            if(prioridade == 3){
+                filaP3 = insereFila(filaP3, prioridade);
+            }
         } else if(opcao == 2){
             int code;
             code = solicitarCodigoDaTarefa(2);
-            editarItemDaFila(fila, code);
+            editarItemDaFila(filaP1, code);
+            editarItemDaFila(filaP2, code);
+            editarItemDaFila(filaP3, code);
         } else if(opcao == 3){
             int code;
             code = solicitarCodigoDaTarefa(3);
-            fila = concluirTarefa(fila, &lista, code);
+            filaP1 = concluirTarefa(filaP1, &lista, code);
+            filaP2 = concluirTarefa(filaP2, &lista, code);
+            filaP3 = concluirTarefa(filaP3, &lista, code);
             lista = ordenarLista(lista);
         } else if(opcao == 4){
             int code;
@@ -46,16 +68,24 @@ int main(int argc, const char * argv[])  {
             int tipo;
             tipo = solicitarAdicionarOuRemoverPendencia();
             if(tipo == 1){
-                fila = mudarStatusPendenteTarefa(fila, &listaPendente, code);
+                filaP1 = mudarStatusPendenteTarefa(filaP1, &listaPendente, code);
+                filaP2 = mudarStatusPendenteTarefa(filaP2, &listaPendente, code);
+                filaP3 = mudarStatusPendenteTarefa(filaP3, &listaPendente, code);
             } else if (tipo == 2){
-                fila = mudarStatusNaoPendenteTarefa(fila, &listaPendente, code);
+                mudarStatusNaoPendenteTarefa(filaP1, filaP2, filaP3, &listaPendente, code);
             } else {
                 printf("\nOpcao nao encontrada!\n");
             }
             listaPendente = ordenarLista(listaPendente);
         } else if(opcao == 5){
-            if(fila != NULL && fila->inicio != NULL){
-                imprimirTarefasPendentes(fila);
+            if(filaP1 != NULL && filaP1->inicio != NULL){
+                imprimirTarefasPendentes(filaP1);
+            }
+            if(filaP2 != NULL && filaP2->inicio != NULL){
+                imprimirTarefasPendentes(filaP2);
+            }
+            if(filaP3 != NULL && filaP3->inicio != NULL){
+                imprimirTarefasPendentes(filaP3);
             }
         } else if(opcao == 6){
             if(lista != NULL){
@@ -68,7 +98,9 @@ int main(int argc, const char * argv[])  {
         } else if(opcao == 8){
                 limparLista(lista);
                 limparLista(listaPendente);
-                limparFila(fila);
+                limparFila(filaP1);
+                limparFila(filaP2);
+                limparFila(filaP3);
             printf("\nSaindo do sistema\n");
         } else {
             printf("\nOpcao invalida !\n");
@@ -93,6 +125,15 @@ int menu(void){
 
     scanf("%d", &opcao);
     return opcao;
+}
+
+int solicitarPrioridadeDaTarefa(){
+    int code = 0;
+
+    printf("\nDigite a prioridade da tarefa: ");
+    scanf("%d", &code);
+
+    return code;
 }
 
 int solicitarCodigoDaTarefa(int tipo){
