@@ -74,6 +74,11 @@ void *editarItemDaFila(Fila *recebido, int code) {
 
 NoLista *procurarItemNaFila(Fila *recebido, int code){
     NoLista *lista = recebido->inicio;
+    
+    if(lista == NULL){
+        return NULL;
+    }
+    
     do {
         if(lista->tarefa->code == code){
             return lista;

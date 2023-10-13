@@ -14,7 +14,7 @@
 int menu(void);
 int solicitarCodigoDaTarefa(int opcao);
 int solicitarAdicionarOuRemoverPendencia(void);
-int solicitarPrioridadeDaTarefa();
+int solicitarPrioridadeDaTarefa(void);
 
 int main(int argc, const char * argv[])  {
     int opcao = 0;
@@ -33,10 +33,10 @@ int main(int argc, const char * argv[])  {
                 lerLista(filaP1->inicio);
             }
             if(filaP2 != NULL && filaP2->inicio != NULL){
-                lerLista(filaP1->inicio);
+                lerLista(filaP2->inicio);
             }
             if(filaP3 != NULL && filaP3->inicio != NULL){
-                lerLista(filaP1->inicio);
+                lerLista(filaP3->inicio);
             }
         } else if(opcao == 1){
             int prioridade = solicitarPrioridadeDaTarefa();
@@ -78,14 +78,8 @@ int main(int argc, const char * argv[])  {
             }
             listaPendente = ordenarLista(listaPendente);
         } else if(opcao == 5){
-            if(filaP1 != NULL && filaP1->inicio != NULL){
-                imprimirTarefasPendentes(filaP1);
-            }
-            if(filaP2 != NULL && filaP2->inicio != NULL){
-                imprimirTarefasPendentes(filaP2);
-            }
-            if(filaP3 != NULL && filaP3->inicio != NULL){
-                imprimirTarefasPendentes(filaP3);
+            if(listaPendente != NULL){
+                lerLista(listaPendente);
             }
         } else if(opcao == 6){
             if(lista != NULL){
@@ -127,7 +121,7 @@ int menu(void){
     return opcao;
 }
 
-int solicitarPrioridadeDaTarefa(){
+int solicitarPrioridadeDaTarefa(void){
     int code = 0;
 
     printf("\nDigite a prioridade da tarefa: ");
