@@ -87,6 +87,10 @@ NoLista *procurarItemNaFilaERemover(Fila **recebido, int code){
     Fila *recebidoAux = *recebido;
     NoLista *lista = recebidoAux->inicio;
     NoLista *aux = NULL;
+    
+    if(lista == NULL){
+        return NULL;
+    }
 
     if(lista->tarefa->code == code){
         if(recebidoAux->inicio == recebidoAux->fim){
@@ -95,7 +99,7 @@ NoLista *procurarItemNaFilaERemover(Fila **recebido, int code){
         } else {
             recebidoAux->inicio = lista->prox;
             if(lista->prox == NULL){
-                recebidoAux->fim == NULL;
+                recebidoAux->fim = NULL;
             }
         }
 
@@ -103,6 +107,9 @@ NoLista *procurarItemNaFilaERemover(Fila **recebido, int code){
     }
 
     do {
+        if(lista->prox == NULL){
+            return NULL;
+        }
         if(lista->prox->tarefa->code == code){
             aux = lista->prox;
             lista->prox = aux->prox;
@@ -143,6 +150,9 @@ Fila *concluirTarefa(Fila *recebido, NoLista **lista, int code){
     }
 
     listaRemovida = procurarItemNaFilaERemover(&recebido, code);
+    if(listaRemovida == NULL){
+        return recebido;
+    }
     listaRemovida->prox = NULL;
     
     listaRemovida->tarefa = atualizarStatusDaTarefa(listaRemovida->tarefa);
@@ -194,6 +204,9 @@ Fila *mudarStatusPendenteTarefa(Fila *recebido, NoLista **lista, int code){
     }
 
     listaRemovida = procurarItemNaFilaERemover(&recebido, code);
+    if(listaRemovida == NULL){
+        return recebido;
+    }
     listaRemovida->prox = NULL;
     listaRemovida->tarefa->status = -1;
 
@@ -229,9 +242,9 @@ void mudarStatusNaoPendenteTarefa(Fila *recebidoP1, Fila *recebidoP2, Fila *rece
         if(listaRemovida->tarefa->prioridade == 1 && filaP1Nula == 0){
             insereFilaComDados(recebidoP1, listaRemovida);
         } else if(listaRemovida->tarefa->prioridade == 2 && filaP2Nula == 0){
-            insereFilaComDados(recebidoP1, listaRemovida);
+            insereFilaComDados(recebidoP2, listaRemovida);
         } else if(listaRemovida->tarefa->prioridade == 3 && filaP3Nula == 0){
-            insereFilaComDados(recebidoP1, listaRemovida);
+            insereFilaComDados(recebidoP3, listaRemovida);
         } else {
             insereListaComDados(lista, listaRemovida);
         }
@@ -280,6 +293,6 @@ void limparFila(Fila *fila){
     if(!filaVazio(fila)){
         NoLista *lista = fila->inicio;
         limparLista(lista);
-        free(lista);
+        free(fila);
     }
 }

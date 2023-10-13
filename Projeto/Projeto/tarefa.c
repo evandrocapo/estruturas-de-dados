@@ -77,7 +77,7 @@ void editarTarefa(Tarefa *tarefa){
             char projeto[30];
             printf("Opção 3\n\n");
             
-            printf("Digite o noem do projeto: ");
+            printf("Digite o nome do projeto: ");
             scanf("%s", projeto);
             strcpy(tarefa->projeto, projeto);
         } else if(opcao == 4){

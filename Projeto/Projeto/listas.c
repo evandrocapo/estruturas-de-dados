@@ -42,6 +42,10 @@ NoLista *removerItemDaLista(NoLista **lista,int code){
         return listaAux;
     }
     
+    if(listaAux == NULL){
+        return listaAux;
+    }
+    
     if(listaAux->tarefa->code == code){
         *lista = listaAux->prox;
         listaAux->prox = NULL;
@@ -130,7 +134,9 @@ void limparLista(NoLista *lista){
                 limparTarefa(lista->tarefa);
                 free(lista);
                 lista = listaAux;
-                listaAux = lista->prox;
+                if(lista != NULL){
+                    listaAux = lista->prox;
+                }
             }while(lista != NULL);
         }
     }
