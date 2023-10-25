@@ -12,10 +12,22 @@
 
 NoLista *criarLista(void);
 
-NoLista *insereLista(void){
+NoLista *insereLista(int prioridade){
     NoLista *lista = criarLista();
-    lista->tarefa = criarTarefa();
+    lista->tarefa = criarTarefa(prioridade);
     return lista;
+}
+
+void insereListaComDados(NoLista **lista, NoLista *listaComDados){
+    NoLista *listaAux = *lista;
+    if(listaAux != NULL){
+        while(listaAux->prox != NULL){
+            listaAux = listaAux->prox;
+        }
+        listaAux->prox = listaComDados;
+    } else {
+        lista = &listaComDados;
+    }
 }
 
 NoLista *criarLista(void){
@@ -27,6 +39,10 @@ NoLista *removerItemDaLista(NoLista **lista,int code){
     NoLista *listaAux = *lista;
 
     if(lista == NULL){
+        return listaAux;
+    }
+    
+    if(listaAux == NULL){
         return listaAux;
     }
     
@@ -111,13 +127,17 @@ NoLista *ordenarLista(NoLista *lista){
 };
 
 void limparLista(NoLista *lista){
-    NoLista *listaAux = lista->prox;
     if(lista != NULL){
-        do{
-            limparTarefa(lista->tarefa);
-            free(lista);
-            lista = listaAux;
-            listaAux = lista->prox;
-        }while(lista != NULL);
+        NoLista *listaAux = lista->prox;
+        if(lista != NULL){
+            do{
+                limparTarefa(lista->tarefa);
+                free(lista);
+                lista = listaAux;
+                if(lista != NULL){
+                    listaAux = lista->prox;
+                }
+            }while(lista != NULL);
+        }
     }
 }
