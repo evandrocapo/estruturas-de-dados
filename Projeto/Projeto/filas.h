@@ -8,11 +8,11 @@ typedef struct fila {
     NoLista *fim;
 } Fila;
 
-Fila *insereFila(Fila *recebido);
+Fila *insereFila(Fila *recebido, int prioridade);
 Fila *removerFila(Fila *recebido);
 Fila *concluirTarefa(Fila *recebido, NoLista **lista, int code);
 Fila *mudarStatusPendenteTarefa(Fila *recebido, NoLista **lista, int code);
-Fila *mudarStatusNaoPendenteTarefa(Fila *recebido, NoLista **lista, int code);
+void mudarStatusNaoPendenteTarefa(Fila *recebidoP1, Fila *recebidoP2, Fila *recebidoP3, NoLista **lista, int code);
 void *editarItemDaFila(Fila *recebido, int code);
 int filaVazio(Fila *recebido);
 void filaLeitura(Fila *recebido);

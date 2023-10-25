@@ -8,7 +8,7 @@ typedef struct noLista {
     struct noLista *prox;
 } NoLista;
 
-NoLista *insereLista(void);
+NoLista *insereLista(int prioridade);
 NoLista *removerLista(NoLista *recebido);
 NoLista *removerItemDaLista(NoLista **lista,int code);
 void editarItemDaLista(NoLista *recebido);
@@ -19,5 +19,6 @@ void lerLista(NoLista *recebido);
 void lerListaConcluidasComESemAtrasos(NoLista *recebido);
 NoLista *ordenarLista(NoLista *lista);
 void limparLista(NoLista *lista);
+void insereListaComDados(NoLista **lista, NoLista *listaComDados);
 
 #endif // LISTAS_H_INCLUDED

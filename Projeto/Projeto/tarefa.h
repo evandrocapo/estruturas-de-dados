@@ -18,7 +18,7 @@ typedef struct tarefa {
     int prioridade;
 } Tarefa;
 
-Tarefa *criarTarefa(void);
+Tarefa *criarTarefa(int prioridade);
 void editarTarefa(Tarefa *tarefa);
 void lerTarefa(Tarefa *tarefa);
 Tarefa *atualizarStatusDaTarefa(Tarefa *tarefa);

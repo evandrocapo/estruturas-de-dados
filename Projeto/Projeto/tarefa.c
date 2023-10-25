@@ -14,7 +14,7 @@
 
 int menuAlteracaoTarefa(void);
 
-Tarefa *criarTarefa(void){
+Tarefa *criarTarefa(int prioridade){
     Tarefa *tarefa = malloc((Tarefa *) sizeof(Tarefa));
 
     int code;
@@ -26,11 +26,6 @@ Tarefa *criarTarefa(void){
     printf("Digite o nome da tarefa: ");
     scanf("%s", name);
     strcpy(tarefa->name, name);
-
-    int prioridade;
-    printf("Digite a prioridade: ");
-    scanf("%d", &prioridade);
-    tarefa->prioridade = prioridade;
 
     char projeto[30];
     printf("Digite o nome do projeto: ");
@@ -47,6 +42,7 @@ Tarefa *criarTarefa(void){
     scanf("%d", &finalDate);
     tarefa->finalDate = finalDate;
     
+    tarefa->prioridade = prioridade;
     tarefa->status = 0;
     
     return tarefa;
@@ -81,7 +77,7 @@ void editarTarefa(Tarefa *tarefa){
             char projeto[30];
             printf("Opção 3\n\n");
             
-            printf("Digite o noem do projeto: ");
+            printf("Digite o nome do projeto: ");
             scanf("%s", projeto);
             strcpy(tarefa->projeto, projeto);
         } else if(opcao == 4){
