@@ -19,11 +19,14 @@ typedef struct BaseArv {
 } Arv;
 
 Arv* criarArvore(void);
-Arv* removerArvore(Arv *raiz, int num);
+Arv* removerArvore(Arv *arvore);
 int arvoreVazia(Arv *base);
 void insereArvore(Arv *arvore, int num);
+Arv* removeItemArvore(Arv *arvore, int num);
 void imprimirPreOrder(NoArv *arvore);
 void imprimirInOrder(NoArv *arvore);
 void imprimirPosOrder(NoArv *arvore);
+int busca(NoArv *no, int num);
+int qntNosInterno(Arv *arvore);
 
 #endif /* arvores_h */
