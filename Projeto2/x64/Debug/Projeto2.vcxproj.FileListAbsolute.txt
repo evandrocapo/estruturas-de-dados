@@ -1,1 +1,2 @@
 C:\Users\Evandro\source\repos\Projeto2\x64\Debug\Projeto2.exe
+C:\Users\Evandro\Desktop\estruturas-de-dados\Projeto2\x64\Debug\Projeto2.exe

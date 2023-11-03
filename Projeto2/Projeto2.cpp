@@ -28,7 +28,7 @@ int main()
 }
 
 void executarTesteDezMil(int sort, int seed) {
-    ChaveValor arrOne[10] = { 0 };
+    ChaveValor arrOne[10000] = { 0 };
     clock_t t;
     t = clock();
 
@@ -51,7 +51,7 @@ void executarTesteDezMil(int sort, int seed) {
         radixsort(arrOne, 10000, output, count);
     }
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10000; i++) {
         printf("%d ", arrOne[i].chave);
     }
 

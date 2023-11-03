@@ -67,7 +67,6 @@ void countingSort(ChaveValor arr[], int tam, int place, ChaveValor output[], int
 		arr[i] = output[i];
 }
 
-//output e count devem ser [tam + 1]
 void radixsort(ChaveValor arr[], int tam, ChaveValor output[], int count[]) {
 	// Get maximum element
 	int max = getMax(arr, tam);
