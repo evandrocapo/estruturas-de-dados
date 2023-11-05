@@ -24,40 +24,53 @@ int main()
     //executarTesteCinquentaMil(2, 200);
 
     //Radix Sort
-    executarTesteDezMil(3, 200);
+    executarTesteDezMil(4, 200);
 }
 
 void executarTesteDezMil(int sort, int seed) {
     ChaveValor arrOne[10000] = { 0 };
     clock_t t;
-    t = clock();
+    t = 0;
+
+    preencherVetor(arrOne, 10000, seed);
 
     if (sort == 1) {
-        preencherVetor(arrOne, 10000, seed);
         t = clock();
         bubblesort(arrOne, 10000);
+        t = clock() - t;
     }
     else if (sort == 2) {
-        preencherVetor(arrOne, 10000, seed);
         t = clock();
         insertionsort(arrOne, 10000);
+        t = clock() - t;
     }
     else if (sort == 3) {
+        t = clock();
+        shellsort(arrOne, 10000);
+        t = clock() - t;
+    }
+    else if (sort == 4) {
+        ChaveValor output[10000 + 1];
+
+        t = clock();
+        mergesort(arrOne, 10000, output);
+        t = clock() - t;
+    }
+    else if (sort == 6) {
         ChaveValor output[10000 + 1];
         int count[10000 + 1];
 
-        preencherVetor(arrOne, 10000, seed);
         t = clock();
         radixsort(arrOne, 10000, output, count);
+        t = clock() - t;
     }
 
     for (int i = 0; i < 10000; i++) {
         printf("%d ", arrOne[i].chave);
     }
 
-    t = clock() - t;
     double time_taken = ((double)t) / CLOCKS_PER_SEC; // calculate the elapsed time
-    printf("O programa levou %f segundo para ordenar\n\n", time_taken);
+    printf("\nO programa levou %f segundo para ordenar\n\n", time_taken);
 }
 
 void executarTesteCinquentaMil(int sort, int seed) {

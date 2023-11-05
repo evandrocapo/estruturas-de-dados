@@ -13,6 +13,8 @@ void insertionsort(ChaveValor arr[], int tam);
 // os parametros "OUTPUT" e "COUNT" devem ter tamanho do
 // vetor a ser comparado + 1;
 void radixsort(ChaveValor arr[], int tam, ChaveValor output[], int count[]);
+void shellsort(ChaveValor arr[], int n);
+void mergesort(ChaveValor arr[], int n, ChaveValor output[]);
 void preencherVetor(ChaveValor arr[], int tam, int seed);
 
 #endif /* ORDENACAO_H */

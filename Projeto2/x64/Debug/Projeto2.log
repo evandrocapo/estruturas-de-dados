@@ -1,2 +1,6 @@
-﻿  Projeto2.cpp
+﻿  ordenacao.cpp
+C:\Users\Evandro\Desktop\estruturas-de-dados\Projeto2\ordenacao.cpp(1,10): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
+C:\Users\Evandro\Desktop\estruturas-de-dados\Projeto2\ordenacao.cpp(2,10): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
+C:\Users\Evandro\Desktop\estruturas-de-dados\Projeto2\ordenacao.cpp(3,10): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
+C:\Users\Evandro\Desktop\estruturas-de-dados\Projeto2\ordenacao.cpp(141,25): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
   Projeto2.vcxproj -> C:\Users\Evandro\Desktop\estruturas-de-dados\Projeto2\x64\Debug\Projeto2.exe

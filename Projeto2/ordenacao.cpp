@@ -76,6 +76,64 @@ void radixsort(ChaveValor arr[], int tam, ChaveValor output[], int count[]) {
 		countingSort(arr, tam, place, output, count);
 }
 
+void shellsort(ChaveValor arr[], int n){
+	int i, j, h;
+	ChaveValor aux;
+	for (h = 1; h < n; h = 3 * h + 1); /* calcula o h inicial. */
+	while (h > 0) {
+		h = (h - 1) / 3; /* atualiza o valor de h. */
+		for (i = h; i < n; i++) {
+			aux = arr[i];
+			j = i;
+			/* efetua comparações entre elementos com distância h: */
+			while (arr[j - h] .chave < aux.chave) {
+				arr[j] = arr[j - h];
+				j -= h;
+				if (j < h) break;
+			}
+			arr[j] = aux;
+		}
+	}
+}
+
+void mergeaux(ChaveValor arr[], ChaveValor c[], int i, int m, int f) {
+	int z, iv = i, ic = m + 1;
+	for (z = i; z <= f; z++) {
+		c[z] = arr[z];
+	}
+	z = i;
+
+	while (iv <= m && ic <= f) {
+		if (c[iv].chave >= c[ic].chave) {
+			arr[z++] = c[iv++];
+		}
+		else {
+			arr[z++] = c[ic++];
+		}
+	}
+
+	while (iv <= m) {
+		arr[z++] = c[iv++];
+	}
+
+	while (ic <= f) {
+		arr[z++] = c[ic++];
+	}
+}
+
+void mergesortaux(ChaveValor arr[], ChaveValor c[], int i, int f) {
+	if (i < f) {
+		int m = (i + f) / 2;
+		mergesortaux(arr, c, i, m);
+		mergesortaux(arr, c, m+1, f);
+		mergeaux(arr, c, i, m, f);
+	}
+}
+
+void mergesort(ChaveValor arr[], int n, ChaveValor output[]) {
+	mergesortaux(arr, output, 0, n - 1);
+}
+
 void preencherVetor(ChaveValor arr[], int tam, int seed) {
 	srand(seed);
 	for (int i = 0; i < tam; i++) {
