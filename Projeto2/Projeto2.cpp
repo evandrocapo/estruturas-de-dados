@@ -23,52 +23,89 @@ int main()
     //executarTesteDezMil(2, 200);
     //executarTesteCinquentaMil(2, 200);
 
+    //Shell Sort
+    //executarTesteDezMil(3, 200);
+
+    //Merge Sort
+    //executarTesteDezMil(4, 200);
+
+    //Quick Sort - LI
+    //executarTesteDezMil(5, 200);
+
+    //Quick Sort - LS
+    //executarTesteDezMil(6, 200);
+
+    //Quick Sort - Meio
+    executarTesteDezMil(7, 200);
+
     //Radix Sort
-    executarTesteDezMil(4, 200);
+   // executarTesteDezMil(8, 200);
 }
 
 void executarTesteDezMil(int sort, int seed) {
-    ChaveValor arrOne[10000] = { 0 };
+    const int DEZMIL = 10000;
+    ChaveValor arrOne[DEZMIL] = { 0 };
     clock_t t;
     t = 0;
 
-    preencherVetor(arrOne, 10000, seed);
+    preencherVetor(arrOne, DEZMIL, seed);
 
     if (sort == 1) {
         t = clock();
-        bubblesort(arrOne, 10000);
+        bubblesort(arrOne, DEZMIL);
         t = clock() - t;
     }
     else if (sort == 2) {
         t = clock();
-        insertionsort(arrOne, 10000);
+        insertionsort(arrOne, DEZMIL);
         t = clock() - t;
     }
     else if (sort == 3) {
         t = clock();
-        shellsort(arrOne, 10000);
+        shellsort(arrOne, DEZMIL);
         t = clock() - t;
     }
     else if (sort == 4) {
-        ChaveValor output[10000 + 1];
+        ChaveValor output[DEZMIL];
 
         t = clock();
-        mergesort(arrOne, 10000, output);
+        mergesort(arrOne, DEZMIL, output);
+        t = clock() - t;
+    }
+    else if (sort == 5) {
+        t = clock();
+        quicksortLI(arrOne, 0, DEZMIL - 1);
         t = clock() - t;
     }
     else if (sort == 6) {
-        ChaveValor output[10000 + 1];
-        int count[10000 + 1];
+        t = clock();
+        quicksortLS(arrOne, 0, DEZMIL - 1);
+        t = clock() - t;
+    }
+    else if (sort == 7) {
+        t = clock();
+        quicksortMEIO(arrOne, 0, DEZMIL - 1);
+        t = clock() - t;
+    }
+    else if (sort == 8) {
+        ChaveValor output[DEZMIL + 1];
+        int count[DEZMIL + 1];
 
         t = clock();
-        radixsort(arrOne, 10000, output, count);
+        radixsort(arrOne, DEZMIL, output, count);
         t = clock() - t;
     }
 
-    for (int i = 0; i < 10000; i++) {
+    int deubom = 1;
+    for (int i = 0; i < DEZMIL -1; i++) {
+        if (arrOne[i].chave < arrOne[i + 1].chave) deubom = 0;
+    }
+
+    for (int i = 0; i < DEZMIL; i++) {
         printf("%d ", arrOne[i].chave);
     }
 
+    printf("\ndeu bom: %d", deubom);
     double time_taken = ((double)t) / CLOCKS_PER_SEC; // calculate the elapsed time
     printf("\nO programa levou %f segundo para ordenar\n\n", time_taken);
 }

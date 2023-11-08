@@ -134,6 +134,97 @@ void mergesort(ChaveValor arr[], int n, ChaveValor output[]) {
 	mergesortaux(arr, output, 0, n - 1);
 }
 
+int particaoLI(ChaveValor arr[], int LI, int LS) {
+	ChaveValor aux, pivo;
+	int e = LI, d = LS;
+	pivo = arr[e];
+	while (e < d)
+	{
+		while ((arr[e].chave >= pivo.chave) && (e < LS)) { e++; } // <= para >=
+		while ((arr[d].chave < pivo.chave) && (d > LI)) { d--; } // > para <
+		if (e < d)
+		{
+			aux = arr[e]; 
+			arr[e] = arr[d]; 
+			arr[d] = aux;
+		}
+	}
+	aux = arr[LI]; 
+	arr[LI] = arr[d]; 
+	arr[d] = aux;
+	return d;
+}
+
+void quicksortLI(ChaveValor arr[], int LI, int LS) {
+	if (LI < LS)
+	{
+		int p, i;
+		p = particaoLI(arr, LI, LS);
+		quicksortLI(arr, LI, p - 1);
+		quicksortLI(arr, p + 1, LS);
+	}
+}
+
+int particaoLS(ChaveValor arr[], int LI, int LS) {
+	ChaveValor aux, pivo;
+	int e = LI, d = LS;
+	pivo = arr[d]; // troca do pivo
+	while (e < d)
+	{
+		while ((arr[e].chave > pivo.chave) && (e < LS)) { e++; }
+		while ((arr[d].chave <= pivo.chave) && (d > LI)) { d--; }
+		if (e < d)
+		{
+			aux = arr[e]; 
+			arr[e] = arr[d]; 
+			arr[d] = aux;
+		}
+	}
+	aux = arr[LS]; // LI para LS
+	arr[LS] = arr[e];
+	arr[e] = aux;
+	return e; // retorna E
+}
+
+void quicksortLS(ChaveValor arr[], int LI, int LS) {
+	if (LI < LS)
+	{
+		int p, i;
+		p = particaoLS(arr, LI, LS);
+		quicksortLS(arr, LI, p - 1);
+		quicksortLS(arr, p + 1, LS);
+	}
+}
+
+int particaoMEIO(ChaveValor arr[], int LI, int LS) {
+	ChaveValor aux, pivo;
+	int e = LI, d = LS;
+	pivo = arr[LS/2]; // pivo do meio
+	while (e < d)
+	{
+		while ((arr[e].chave < pivo.chave) && (e < LS)) { e++; }
+		while ((arr[d].chave > pivo.chave) && (d > LI)) { d--; }
+		if (e < d)
+		{
+			aux = arr[e]; arr[e] = arr[d]; arr[d] = aux;
+		}
+	}
+	aux = arr[LS/2];
+	arr[LS/2] = arr[d];
+	arr[d] = aux;
+	return d;
+}
+
+void quicksortMEIO(ChaveValor arr[], int LI, int LS) {
+	if (LI < LS)
+	{
+		int p, i;
+		p = particaoMEIO(arr, LI, LS);
+		quicksortME IO(arr, LI, p - 1);
+		quicksortMEIO(arr, p + 1, LS);
+	}
+}
+
 void preencherVetor(ChaveValor arr[], int tam, int seed) {
 	srand(seed);
 	for (int i = 0; i < tam; i++) {

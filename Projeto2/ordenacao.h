@@ -15,6 +15,9 @@ void insertionsort(ChaveValor arr[], int tam);
 void radixsort(ChaveValor arr[], int tam, ChaveValor output[], int count[]);
 void shellsort(ChaveValor arr[], int n);
 void mergesort(ChaveValor arr[], int n, ChaveValor output[]);
+void quicksortLI(ChaveValor arr[], int LI, int LS);
+void quicksortLS(ChaveValor arr[], int LI, int LS);
+void quicksortMEIO(ChaveValor arr[], int LI, int LS);
 void preencherVetor(ChaveValor arr[], int tam, int seed);
 
 #endif /* ORDENACAO_H */
