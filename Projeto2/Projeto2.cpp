@@ -11,51 +11,36 @@ double executarTesteCinquentaMil(int sort, int seed);
 double executarTesteCemMil(int sort, int seed);
 double executarTesteQuinhentosMil(int sort, int seed);
 double executarTesteUmMilhao(int sort, int seed);
-void bubbleSortTest(void);
-void insertionSortTest(void);
-void shellSortTest(void);
-void mergeSortTest(void);
-void quickSortLiTest(void);
-void quickSortLsTest(void);
-void quickSortMidTest(void);
+void bubbleSortTest(int tipoChave);
+void insertionSortTest(int tipoChave);
+void shellSortTest(int tipoChave);
+void mergeSortTest(int tipoChave);
+void quickSortLiTest(int tipoChave);
+void quickSortLsTest(int tipoChave);
+void quickSortMidTest(int tipoChave);
 
 int main(void)
 {
-//    bubbleSortTest();
-//    insertionSortTest();
-//    shellSortTest();
-//    mergeSortTest();
-//    quickSortLiTest();
-//    quickSortLsTest();
-    quickSortMidTest();
-    
-    //executarTesteCinquentaMil(1, 200);
+    // Chave Aleatorio
+    bubbleSortTest(0);
+    insertionSortTest(0);
+    shellSortTest(0);
+    mergeSortTest(0);
+    quickSortLiTest(0);
+    quickSortLsTest(0);
+    quickSortMidTest(0);
 
-
-    //Insertion Sort
-    //executarTesteDezMil(2, 200);
-    //executarTesteCinquentaMil(2, 200);
-
-    //Shell Sort
-    //executarTesteDezMil(3, 200);
-
-    //Merge Sort
-    //executarTesteDezMil(4, 200);
-
-    //Quick Sort - LI
-    //executarTesteDezMil(5, 200);
-
-    //Quick Sort - LS
-    //executarTesteDezMil(6, 200);
-
-    //Quick Sort - Meio
-//    executarTesteDezMil(7, 200);
-
-    //Radix Sort
-   // executarTesteDezMil(8, 200);
+    // Chave Sequencial
+    bubbleSortTest(1);
+    insertionSortTest(1);
+    shellSortTest(1);
+    mergeSortTest(1);
+    quickSortLiTest(1);
+    quickSortLsTest(1);
+    quickSortMidTest(1);
 }
 
-void bubbleSortTest(void){
+void bubbleSortTest(int tipoChave){
     //Bubble Sort - 10.000
     double min = 20000000;
     double max = -200;
@@ -63,7 +48,16 @@ void bubbleSortTest(void){
     double atual = 0;
     
     for(int i = 0; i< 10; i++){
-        atual = executarTesteDezMil(1, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteDezMil(1, t);
+        }
+        else {
+            atual = executarTesteDezMil(1, 10 + i);
+        }
+        
         
         if(media == 0) {
             media = atual;
@@ -90,7 +84,15 @@ void bubbleSortTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteCinquentaMil(1, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteCinquentaMil(1, t);
+        }
+        else {
+            atual = executarTesteCinquentaMil(1, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -117,7 +119,15 @@ void bubbleSortTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteCemMil(1, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteCemMil(1, t);
+        }
+        else {
+            atual = executarTesteCemMil(1, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -144,7 +154,15 @@ void bubbleSortTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteQuinhentosMil(1, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteQuinhentosMil(1, t);
+        }
+        else {
+            atual = executarTesteQuinhentosMil(1, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -171,7 +189,15 @@ void bubbleSortTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteUmMilhao(1, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteUmMilhao(1, t);
+        }
+        else {
+            atual = executarTesteUmMilhao(1, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -193,7 +219,7 @@ void bubbleSortTest(void){
     printf("Bubble Sort MAX: %f\n", max);
 }
 
-void insertionSortTest(void){
+void insertionSortTest(int tipoChave){
     //Insertion Sort - 10.000
     double min = 20000000;
     double max = -200;
@@ -201,7 +227,15 @@ void insertionSortTest(void){
     double atual = 0;
     
     for(int i = 0; i< 10; i++){
-        atual = executarTesteDezMil(2, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteDezMil(2, t);
+        }
+        else {
+            atual = executarTesteDezMil(2, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -228,7 +262,15 @@ void insertionSortTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteCinquentaMil(2, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteCinquentaMil(2, t);
+        }
+        else {
+            atual = executarTesteCinquentaMil(2, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -255,7 +297,15 @@ void insertionSortTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteCemMil(2, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteCemMil(2, t);
+        }
+        else {
+            atual = executarTesteCemMil(2, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -282,7 +332,15 @@ void insertionSortTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteQuinhentosMil(2, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteQuinhentosMil(2, t);
+        }
+        else {
+            atual = executarTesteQuinhentosMil(2, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -309,7 +367,15 @@ void insertionSortTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteUmMilhao(2, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteUmMilhao(2, t);
+        }
+        else {
+            atual = executarTesteUmMilhao(2, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -331,7 +397,7 @@ void insertionSortTest(void){
     printf("Insertion Sort MAX: %f\n", max);
 }
 
-void shellSortTest(void){
+void shellSortTest(int tipoChave){
     //Shell Sort - 10.000
     double min = 20000000;
     double max = -200;
@@ -339,7 +405,15 @@ void shellSortTest(void){
     double atual = 0;
 
     for(int i = 0; i< 10; i++){
-        atual = executarTesteDezMil(3, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteDezMil(3, t);
+        }
+        else {
+            atual = executarTesteDezMil(3, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -366,7 +440,15 @@ void shellSortTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteCinquentaMil(3, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteCinquentaMil(3, t);
+        }
+        else {
+            atual = executarTesteCinquentaMil(3, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -393,7 +475,15 @@ void shellSortTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteCemMil(3, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteCemMil(3, t);
+        }
+        else {
+            atual = executarTesteCemMil(3, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -420,7 +510,15 @@ void shellSortTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteQuinhentosMil(3, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteQuinhentosMil(3, t);
+        }
+        else {
+            atual = executarTesteQuinhentosMil(3, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -447,7 +545,15 @@ void shellSortTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteUmMilhao(3, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteUmMilhao(3, t);
+        }
+        else {
+            atual = executarTesteUmMilhao(3, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -469,7 +575,7 @@ void shellSortTest(void){
     printf("Shell Sort MAX: %f\n", max);
 }
 
-void mergeSortTest(void) {
+void mergeSortTest(int tipoChave) {
     //Merge Sort - 10.000
     double min = 20000000;
     double max = -200;
@@ -477,7 +583,15 @@ void mergeSortTest(void) {
     double atual = 0;
 
     for(int i = 0; i< 10; i++){
-        atual = executarTesteDezMil(4, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteUmMilhao(4, t);
+        }
+        else {
+            atual = executarTesteDezMil(4, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -504,7 +618,15 @@ void mergeSortTest(void) {
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteCinquentaMil(4, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteCinquentaMil(4, t);
+        }
+        else {
+            atual = executarTesteCinquentaMil(4, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -531,7 +653,15 @@ void mergeSortTest(void) {
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteCemMil(4, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteCemMil(4, t);
+        }
+        else {
+            atual = executarTesteCemMil(4, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -558,7 +688,15 @@ void mergeSortTest(void) {
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteQuinhentosMil(4, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteQuinhentosMil(4, t);
+        }
+        else {
+            atual = executarTesteQuinhentosMil(4, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -585,7 +723,15 @@ void mergeSortTest(void) {
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteUmMilhao(4, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteUmMilhao(4, t);
+        }
+        else {
+            atual = executarTesteUmMilhao(4, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -607,7 +753,7 @@ void mergeSortTest(void) {
     printf("Merge Sort MAX: %f\n", max);
 }
 
-void quickSortLiTest(void){
+void quickSortLiTest(int tipoChave){
     //Quick Sort LI - 10.000
     double min = 20000000;
     double max = -200;
@@ -615,7 +761,15 @@ void quickSortLiTest(void){
     double atual = 0;
 
     for(int i = 0; i< 10; i++){
-        atual = executarTesteDezMil(5, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteDezMil(5, t);
+        }
+        else {
+            atual = executarTesteDezMil(5, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -642,7 +796,15 @@ void quickSortLiTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteCinquentaMil(5, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteCinquentaMil(5, t);
+        }
+        else {
+            atual = executarTesteCinquentaMil(5, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -669,7 +831,15 @@ void quickSortLiTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteCemMil(5, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteCemMil(5, t);
+        }
+        else {
+            atual = executarTesteCemMil(5, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -696,7 +866,15 @@ void quickSortLiTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteQuinhentosMil(5, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteQuinhentosMil(5, t);
+        }
+        else {
+            atual = executarTesteQuinhentosMil(5, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -723,7 +901,15 @@ void quickSortLiTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteUmMilhao(5, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteUmMilhao(5, t);
+        }
+        else {
+            atual = executarTesteUmMilhao(5, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -745,7 +931,7 @@ void quickSortLiTest(void){
     printf("Quick Sort LI MAX: %f\n", max);
 }
 
-void quickSortLsTest(void){
+void quickSortLsTest(int tipoChave){
     //Quick Sort LS - 10.000
     double min = 20000000;
     double max = -200;
@@ -753,7 +939,12 @@ void quickSortLsTest(void){
     double atual = 0;
 
     for(int i = 0; i< 10; i++){
-        atual = executarTesteDezMil(6, 200 + i * 10);
+        if (tipoChave == 0) {
+            atual = executarTesteDezMil(6, 200 + i * 10);
+        }
+        else {
+            atual = executarTesteDezMil(6, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -780,7 +971,12 @@ void quickSortLsTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteCinquentaMil(6, 200 + i * 10);
+        if (tipoChave == 0) {
+            atual = executarTesteCinquentaMil(6, 200 + i * 10);
+        }
+        else {
+            atual = executarTesteCinquentaMil(6, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -807,7 +1003,12 @@ void quickSortLsTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteCemMil(6, 200 + i * 10);
+        if (tipoChave == 0) {
+            atual = executarTesteCemMil(6, 200 + i * 10);
+        }
+        else {
+            atual = executarTesteCemMil(6, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -834,7 +1035,12 @@ void quickSortLsTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteQuinhentosMil(6, 200 + i * 10);
+        if (tipoChave == 0) {
+            atual = executarTesteQuinhentosMil(6, 200 + i * 10);
+        }
+        else {
+            atual = executarTesteQuinhentosMil(6, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -861,7 +1067,12 @@ void quickSortLsTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteUmMilhao(6, 200 + i * 10);
+        if (tipoChave == 0) {
+            atual = executarTesteUmMilhao(6, 200 + i * 10);
+        }
+        else {
+            atual = executarTesteUmMilhao(6, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -883,7 +1094,7 @@ void quickSortLsTest(void){
     printf("Quick Sort LS MAX: %f\n", max);
 }
 
-void quickSortMidTest(void){
+void quickSortMidTest(int tipoChave){
     //Quick Sort MID - 10.000
     double min = 20000000;
     double max = -200;
@@ -891,7 +1102,15 @@ void quickSortMidTest(void){
     double atual = 0;
 
     for(int i = 0; i< 10; i++){
-        atual = executarTesteDezMil(7, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteDezMil(7, t);
+        }
+        else {
+            atual = executarTesteDezMil(7, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -918,7 +1137,15 @@ void quickSortMidTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteCinquentaMil(7, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteCinquentaMil(7, t);
+        }
+        else {
+            atual = executarTesteCinquentaMil(7, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -945,7 +1172,15 @@ void quickSortMidTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteCemMil(7, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteCemMil(7, t);
+        }
+        else {
+            atual = executarTesteCemMil(7, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -972,7 +1207,15 @@ void quickSortMidTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteQuinhentosMil(7, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteQuinhentosMil(7, t);
+        }
+        else {
+            atual = executarTesteQuinhentosMil(7, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
@@ -999,7 +1242,15 @@ void quickSortMidTest(void){
     media = 0;
     atual = 0;
     for(int i = 0; i< 10; i++){
-        atual = executarTesteUmMilhao(7, 200 + i * 10);
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteUmMilhao(7, t);
+        }
+        else {
+            atual = executarTesteUmMilhao(7, 10 + i);
+        }
         
         if(media == 0) {
             media = atual;
