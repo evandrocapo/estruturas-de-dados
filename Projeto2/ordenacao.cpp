@@ -1,6 +1,7 @@
 #include "ordenacao.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 void bubblesort(ChaveValor arr[], int tam) {
     for (int i = 0; i < tam; i++) {
@@ -230,9 +231,19 @@ void quicksortMEIO(ChaveValor arr[], int LI, int LS) {
 }
 
 void preencherVetor(ChaveValor arr[], int tam, int seed) {
-    srand(seed);
     for (int i = 0; i < tam; i++) {
-        arr[i].chave = rand() % 100;
-        arr[i].valor = rand() % 100;
+        if (seed == 1) {
+            clock_t t;
+            t = clock();
+            srand(t);
+
+            arr[i].chave = 10 + i;
+            arr[i].valor = rand() % 100;
+        }
+        else {
+            srand(seed);
+            arr[i].chave = rand() % 100;
+            arr[i].valor = rand() % 100;
+        }
     }
 }

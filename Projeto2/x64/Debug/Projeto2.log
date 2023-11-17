@@ -1,2 +1,6 @@
 ﻿  Projeto2.cpp
+  ordenacao.cpp
+C:\Users\Evandro\Desktop\estruturas-de-dados\Projeto2\ordenacao.cpp(241,35): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+C:\Users\Evandro\Desktop\estruturas-de-dados\Projeto2\ordenacao.cpp(246,35): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+  Gerando Código...
   Projeto2.vcxproj -> C:\Users\Evandro\Desktop\estruturas-de-dados\Projeto2\x64\Debug\Projeto2.exe

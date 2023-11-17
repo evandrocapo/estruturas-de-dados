@@ -55,7 +55,7 @@ void bubbleSortTest(int tipoChave){
             atual = executarTesteDezMil(1, t);
         }
         else {
-            atual = executarTesteDezMil(1, 10 + i);
+            atual = executarTesteDezMil(1, 1);
         }
         
         
@@ -91,7 +91,7 @@ void bubbleSortTest(int tipoChave){
             atual = executarTesteCinquentaMil(1, t);
         }
         else {
-            atual = executarTesteCinquentaMil(1, 10 + i);
+            atual = executarTesteCinquentaMil(1, 1);
         }
         
         if(media == 0) {
@@ -126,7 +126,7 @@ void bubbleSortTest(int tipoChave){
             atual = executarTesteCemMil(1, t);
         }
         else {
-            atual = executarTesteCemMil(1, 10 + i);
+            atual = executarTesteCemMil(1, 1);
         }
         
         if(media == 0) {
@@ -161,7 +161,7 @@ void bubbleSortTest(int tipoChave){
             atual = executarTesteQuinhentosMil(1, t);
         }
         else {
-            atual = executarTesteQuinhentosMil(1, 10 + i);
+            atual = executarTesteQuinhentosMil(1, 1);
         }
         
         if(media == 0) {
@@ -196,7 +196,7 @@ void bubbleSortTest(int tipoChave){
             atual = executarTesteUmMilhao(1, t);
         }
         else {
-            atual = executarTesteUmMilhao(1, 10 + i);
+            atual = executarTesteUmMilhao(1, 1);
         }
         
         if(media == 0) {
@@ -234,7 +234,7 @@ void insertionSortTest(int tipoChave){
             atual = executarTesteDezMil(2, t);
         }
         else {
-            atual = executarTesteDezMil(2, 10 + i);
+            atual = executarTesteDezMil(2, 1);
         }
         
         if(media == 0) {
@@ -269,7 +269,7 @@ void insertionSortTest(int tipoChave){
             atual = executarTesteCinquentaMil(2, t);
         }
         else {
-            atual = executarTesteCinquentaMil(2, 10 + i);
+            atual = executarTesteCinquentaMil(2, 1);
         }
         
         if(media == 0) {
@@ -304,7 +304,7 @@ void insertionSortTest(int tipoChave){
             atual = executarTesteCemMil(2, t);
         }
         else {
-            atual = executarTesteCemMil(2, 10 + i);
+            atual = executarTesteCemMil(2, 1);
         }
         
         if(media == 0) {
@@ -339,7 +339,7 @@ void insertionSortTest(int tipoChave){
             atual = executarTesteQuinhentosMil(2, t);
         }
         else {
-            atual = executarTesteQuinhentosMil(2, 10 + i);
+            atual = executarTesteQuinhentosMil(2, 1);
         }
         
         if(media == 0) {
@@ -374,7 +374,7 @@ void insertionSortTest(int tipoChave){
             atual = executarTesteUmMilhao(2, t);
         }
         else {
-            atual = executarTesteUmMilhao(2, 10 + i);
+            atual = executarTesteUmMilhao(2, 1);
         }
         
         if(media == 0) {
@@ -412,7 +412,7 @@ void shellSortTest(int tipoChave){
             atual = executarTesteDezMil(3, t);
         }
         else {
-            atual = executarTesteDezMil(3, 10 + i);
+            atual = executarTesteDezMil(3, 1);
         }
         
         if(media == 0) {
@@ -447,7 +447,7 @@ void shellSortTest(int tipoChave){
             atual = executarTesteCinquentaMil(3, t);
         }
         else {
-            atual = executarTesteCinquentaMil(3, 10 + i);
+            atual = executarTesteCinquentaMil(3, 1);
         }
         
         if(media == 0) {
@@ -482,7 +482,7 @@ void shellSortTest(int tipoChave){
             atual = executarTesteCemMil(3, t);
         }
         else {
-            atual = executarTesteCemMil(3, 10 + i);
+            atual = executarTesteCemMil(3, 1);
         }
         
         if(media == 0) {
@@ -517,7 +517,7 @@ void shellSortTest(int tipoChave){
             atual = executarTesteQuinhentosMil(3, t);
         }
         else {
-            atual = executarTesteQuinhentosMil(3, 10 + i);
+            atual = executarTesteQuinhentosMil(3, 1);
         }
         
         if(media == 0) {
@@ -552,7 +552,7 @@ void shellSortTest(int tipoChave){
             atual = executarTesteUmMilhao(3, t);
         }
         else {
-            atual = executarTesteUmMilhao(3, 10 + i);
+            atual = executarTesteUmMilhao(3, 1);
         }
         
         if(media == 0) {
@@ -590,7 +590,7 @@ void mergeSortTest(int tipoChave) {
             atual = executarTesteUmMilhao(4, t);
         }
         else {
-            atual = executarTesteDezMil(4, 10 + i);
+            atual = executarTesteDezMil(4, 1);
         }
         
         if(media == 0) {
@@ -625,7 +625,7 @@ void mergeSortTest(int tipoChave) {
             atual = executarTesteCinquentaMil(4, t);
         }
         else {
-            atual = executarTesteCinquentaMil(4, 10 + i);
+            atual = executarTesteCinquentaMil(4, 1);
         }
         
         if(media == 0) {
@@ -660,7 +660,7 @@ void mergeSortTest(int tipoChave) {
             atual = executarTesteCemMil(4, t);
         }
         else {
-            atual = executarTesteCemMil(4, 10 + i);
+            atual = executarTesteCemMil(4, 1);
         }
         
         if(media == 0) {
@@ -695,7 +695,7 @@ void mergeSortTest(int tipoChave) {
             atual = executarTesteQuinhentosMil(4, t);
         }
         else {
-            atual = executarTesteQuinhentosMil(4, 10 + i);
+            atual = executarTesteQuinhentosMil(4, 1);
         }
         
         if(media == 0) {
@@ -730,7 +730,7 @@ void mergeSortTest(int tipoChave) {
             atual = executarTesteUmMilhao(4, t);
         }
         else {
-            atual = executarTesteUmMilhao(4, 10 + i);
+            atual = executarTesteUmMilhao(4, 1);
         }
         
         if(media == 0) {
@@ -768,7 +768,7 @@ void quickSortLiTest(int tipoChave){
             atual = executarTesteDezMil(5, t);
         }
         else {
-            atual = executarTesteDezMil(5, 10 + i);
+            atual = executarTesteDezMil(5, 1);
         }
         
         if(media == 0) {
@@ -803,7 +803,7 @@ void quickSortLiTest(int tipoChave){
             atual = executarTesteCinquentaMil(5, t);
         }
         else {
-            atual = executarTesteCinquentaMil(5, 10 + i);
+            atual = executarTesteCinquentaMil(5, 1);
         }
         
         if(media == 0) {
@@ -838,7 +838,7 @@ void quickSortLiTest(int tipoChave){
             atual = executarTesteCemMil(5, t);
         }
         else {
-            atual = executarTesteCemMil(5, 10 + i);
+            atual = executarTesteCemMil(5, 1);
         }
         
         if(media == 0) {
@@ -873,7 +873,7 @@ void quickSortLiTest(int tipoChave){
             atual = executarTesteQuinhentosMil(5, t);
         }
         else {
-            atual = executarTesteQuinhentosMil(5, 10 + i);
+            atual = executarTesteQuinhentosMil(5, 1);
         }
         
         if(media == 0) {
@@ -908,7 +908,7 @@ void quickSortLiTest(int tipoChave){
             atual = executarTesteUmMilhao(5, t);
         }
         else {
-            atual = executarTesteUmMilhao(5, 10 + i);
+            atual = executarTesteUmMilhao(5, 1);
         }
         
         if(media == 0) {
@@ -943,7 +943,7 @@ void quickSortLsTest(int tipoChave){
             atual = executarTesteDezMil(6, 200 + i * 10);
         }
         else {
-            atual = executarTesteDezMil(6, 10 + i);
+            atual = executarTesteDezMil(6, 1);
         }
         
         if(media == 0) {
@@ -975,7 +975,7 @@ void quickSortLsTest(int tipoChave){
             atual = executarTesteCinquentaMil(6, 200 + i * 10);
         }
         else {
-            atual = executarTesteCinquentaMil(6, 10 + i);
+            atual = executarTesteCinquentaMil(6, 1);
         }
         
         if(media == 0) {
@@ -1007,7 +1007,7 @@ void quickSortLsTest(int tipoChave){
             atual = executarTesteCemMil(6, 200 + i * 10);
         }
         else {
-            atual = executarTesteCemMil(6, 10 + i);
+            atual = executarTesteCemMil(6, 1);
         }
         
         if(media == 0) {
@@ -1039,7 +1039,7 @@ void quickSortLsTest(int tipoChave){
             atual = executarTesteQuinhentosMil(6, 200 + i * 10);
         }
         else {
-            atual = executarTesteQuinhentosMil(6, 10 + i);
+            atual = executarTesteQuinhentosMil(6, 1);
         }
         
         if(media == 0) {
@@ -1071,7 +1071,7 @@ void quickSortLsTest(int tipoChave){
             atual = executarTesteUmMilhao(6, 200 + i * 10);
         }
         else {
-            atual = executarTesteUmMilhao(6, 10 + i);
+            atual = executarTesteUmMilhao(6, 1);
         }
         
         if(media == 0) {
@@ -1109,7 +1109,7 @@ void quickSortMidTest(int tipoChave){
             atual = executarTesteDezMil(7, t);
         }
         else {
-            atual = executarTesteDezMil(7, 10 + i);
+            atual = executarTesteDezMil(7, 1);
         }
         
         if(media == 0) {
@@ -1144,7 +1144,7 @@ void quickSortMidTest(int tipoChave){
             atual = executarTesteCinquentaMil(7, t);
         }
         else {
-            atual = executarTesteCinquentaMil(7, 10 + i);
+            atual = executarTesteCinquentaMil(7, 1);
         }
         
         if(media == 0) {
@@ -1179,7 +1179,7 @@ void quickSortMidTest(int tipoChave){
             atual = executarTesteCemMil(7, t);
         }
         else {
-            atual = executarTesteCemMil(7, 10 + i);
+            atual = executarTesteCemMil(7, 1);
         }
         
         if(media == 0) {
@@ -1214,7 +1214,7 @@ void quickSortMidTest(int tipoChave){
             atual = executarTesteQuinhentosMil(7, t);
         }
         else {
-            atual = executarTesteQuinhentosMil(7, 10 + i);
+            atual = executarTesteQuinhentosMil(7, 1);
         }
         
         if(media == 0) {
@@ -1249,7 +1249,7 @@ void quickSortMidTest(int tipoChave){
             atual = executarTesteUmMilhao(7, t);
         }
         else {
-            atual = executarTesteUmMilhao(7, 10 + i);
+            atual = executarTesteUmMilhao(7, 1);
         }
         
         if(media == 0) {
