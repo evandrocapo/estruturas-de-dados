@@ -18,6 +18,7 @@ void mergeSortTest(int tipoChave);
 void quickSortLiTest(int tipoChave);
 void quickSortLsTest(int tipoChave);
 void quickSortMidTest(int tipoChave);
+void radixSortTest(int tipoChave);
 
 int main(void)
 {
@@ -29,6 +30,7 @@ int main(void)
     quickSortLiTest(0);
     quickSortLsTest(0);
     quickSortMidTest(0);
+    radixSortTest(0);
 
     // Chave Sequencial
     bubbleSortTest(1);
@@ -38,6 +40,7 @@ int main(void)
     quickSortLiTest(1);
     quickSortLsTest(1);
     quickSortMidTest(1);
+    radixSortTest(1);
 }
 
 void bubbleSortTest(int tipoChave){
@@ -1272,6 +1275,189 @@ void quickSortMidTest(int tipoChave){
     printf("Quick Sort MID MAX: %f\n", max);
 }
 
+void radixSortTest(int tipoChave) {
+    //Radix Sort - 10.000
+    double min = 20000000;
+    double max = -200;
+    double media = 0;
+    double atual = 0;
+
+    for (int i = 0; i < 1; i++) {
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteDezMil(8, t);
+        }
+        else {
+            atual = executarTesteDezMil(8, 1);
+        }
+
+        if (media == 0) {
+            media = atual;
+        }
+        else {
+            media = (media + atual) / 2;
+        }
+
+        if (atual > max) {
+            max = atual;
+        }
+        if (atual < min) {
+            min = atual;
+        }
+    }
+
+    printf("Dez Mil: \n");
+    printf("Radix Sort MIN: %f\n", min);
+    printf("Radix Sort media: %f\n", media);
+    printf("Radix Sort MAX: %f\n", max);
+
+    //Radix Sort - 50.000
+    min = 20000000;
+    max = -200;
+    media = 0;
+    atual = 0;
+    for (int i = 0; i < 10; i++) {
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteCinquentaMil(8, t);
+        }
+        else {
+            atual = executarTesteCinquentaMil(8, 1);
+        }
+
+        if (media == 0) {
+            media = atual;
+        }
+        else {
+            media = (media + atual) / 2;
+        }
+
+        if (atual > max) {
+            max = atual;
+        }
+        if (atual < min) {
+            min = atual;
+        }
+    }
+
+    printf("Cinquenta Mil: \n");
+    printf("Radix Sort MIN: %f\n", min);
+    printf("Radix Sort media: %f\n", media);
+    printf("Radix Sort MAX: %f\n", max);
+
+    //Radix Sort - 100.000
+    min = 20000000;
+    max = -200;
+    media = 0;
+    atual = 0;
+    for (int i = 0; i < 10; i++) {
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteCemMil(8, t);
+        }
+        else {
+            atual = executarTesteCemMil(8, 1);
+        }
+
+        if (media == 0) {
+            media = atual;
+        }
+        else {
+            media = (media + atual) / 2;
+        }
+
+        if (atual > max) {
+            max = atual;
+        }
+        if (atual < min) {
+            min = atual;
+        }
+    }
+
+    printf("Cem Mil: \n");
+    printf("Radix Sort MIN: %f\n", min);
+    printf("Radix Sort media: %f\n", media);
+    printf("Radix Sort MAX: %f\n", max);
+
+    //Radix Sort - 500.000
+    min = 20000000;
+    max = -200;
+    media = 0;
+    atual = 0;
+    for (int i = 0; i < 10; i++) {
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteQuinhentosMil(8, t);
+        }
+        else {
+            atual = executarTesteQuinhentosMil(8, 1);
+        }
+
+        if (media == 0) {
+            media = atual;
+        }
+        else {
+            media = (media + atual) / 2;
+        }
+
+        if (atual > max) {
+            max = atual;
+        }
+        if (atual < min) {
+            min = atual;
+        }
+    }
+
+    printf("Quinhentos Mil: \n");
+    printf("Radix Sort MIN: %f\n", min);
+    printf("Radix Sort media: %f\n", media);
+    printf("Radix Sort MAX: %f\n", max);
+
+    //Radix Sort - 1.000.000
+    min = 20000000;
+    max = -200;
+    media = 0;
+    atual = 0;
+    for (int i = 0; i < 10; i++) {
+        if (tipoChave == 0) {
+            clock_t t;
+            t = 0;
+            t = clock();
+            atual = executarTesteUmMilhao(8, t);
+        }
+        else {
+            atual = executarTesteUmMilhao(8, 1);
+        }
+
+        if (media == 0) {
+            media = atual;
+        }
+        else {
+            media = (media + atual) / 2;
+        }
+
+        if (atual > max) {
+            max = atual;
+        }
+        if (atual < min) {
+            min = atual;
+        }
+    }
+
+    printf("Um Milhao: \n");
+    printf("Radix Sort MIN: %f\n", min);
+    printf("Radix Sort media: %f\n", media);
+    printf("Radix Sort MAX: %f\n", max);
+}
+
 double executarTesteDezMil(int sort, int seed) {
     const int DEZMIL = 10000;
     ChaveValor arrOne[DEZMIL] = { 0 };
@@ -1319,7 +1505,7 @@ double executarTesteDezMil(int sort, int seed) {
     }
     else if (sort == 8) {
         ChaveValor output[DEZMIL + 1];
-        int count[DEZMIL + 1];
+        int count[99999999];
 
         t = clock();
         radixsortORG(arrOne, DEZMIL, output, count);
@@ -1391,7 +1577,7 @@ double executarTesteCinquentaMil(int sort, int seed) {
     }
     else if (sort == 8) {
         ChaveValor output[DEZMIL + 1];
-        int count[DEZMIL + 1];
+        int count[99999999];
 
         t = clock();
         radixsortORG(arrOne, DEZMIL, output, count);
@@ -1460,7 +1646,7 @@ double executarTesteCemMil(int sort, int seed) {
     }
     else if (sort == 8) {
         ChaveValor output[DEZMIL + 1];
-        int count[DEZMIL + 1];
+        int count[99999999];
 
         t = clock();
         radixsortORG(arrOne, DEZMIL, output, count);
@@ -1529,7 +1715,7 @@ double executarTesteQuinhentosMil(int sort, int seed) {
     }
     else if (sort == 8) {
         ChaveValor output[DEZMIL + 1];
-        int count[DEZMIL + 1];
+        int count[99999999];
 
         t = clock();
         radixsortORG(arrOne, DEZMIL, output, count);
@@ -1598,7 +1784,7 @@ double executarTesteUmMilhao(int sort, int seed) {
     }
     else if (sort == 8) {
         ChaveValor output[DEZMIL + 1];
-        int count[DEZMIL + 1];
+        int count[99999999];
 
         t = clock();
         radixsortORG(arrOne, DEZMIL, output, count);
