@@ -9,7 +9,7 @@ typedef struct chaveValor {
 
 void bubblesort(ChaveValor arr[], int tam);
 void insertionsort(ChaveValor arr[], int tam);
-// Para o funcionamento correto do radixsort � necessario que
+// Para o funcionamento correto do radixsort e necessario que
 // os parametros "OUTPUT" e "COUNT" devem ter tamanho do
 // vetor a ser comparado + 1;
 void radixsortORG(ChaveValor arr[], int tam, ChaveValor output[], int count[]);
