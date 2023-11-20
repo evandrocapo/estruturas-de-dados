@@ -45,7 +45,7 @@ void countingSort(ChaveValor arr[], int tam, int place, ChaveValor output[], int
             max = arr[i].chave;
     }
 
-    for (int i = 0; i < max; ++i)
+    for (int i = 0; i < 10; ++i)
         count[i] = 0;
 
     // Calculate count of elements

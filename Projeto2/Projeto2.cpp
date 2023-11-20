@@ -23,7 +23,7 @@ void radixSortTest(int tipoChave);
 int main(void)
 {
     // Chave Aleatorio
-    bubbleSortTest(0);
+   bubbleSortTest(0);
     insertionSortTest(0);
     shellSortTest(0);
     mergeSortTest(0);
@@ -1505,7 +1505,7 @@ double executarTesteDezMil(int sort, int seed) {
     }
     else if (sort == 8) {
         ChaveValor output[DEZMIL + 1];
-        int count[99999999];
+        int count[10];
 
         t = clock();
         radixsortORG(arrOne, DEZMIL, output, count);
@@ -1563,7 +1563,7 @@ double executarTesteCinquentaMil(int sort, int seed) {
     }
     else if (sort == 8) {
         ChaveValor output[DEZMIL + 1];
-        int count[99999999];
+        int count[10];
 
         t = clock();
         radixsortORG(arrOne, DEZMIL, output, count);
@@ -1621,7 +1621,7 @@ double executarTesteCemMil(int sort, int seed) {
     }
     else if (sort == 8) {
         ChaveValor output[DEZMIL + 1];
-        int count[99999999];
+        int count[10];
 
         t = clock();
         radixsortORG(arrOne, DEZMIL, output, count);
@@ -1679,7 +1679,7 @@ double executarTesteQuinhentosMil(int sort, int seed) {
     }
     else if (sort == 8) {
         ChaveValor output[DEZMIL + 1];
-        int count[99999999];
+        int count[10];
 
         t = clock();
         radixsortORG(arrOne, DEZMIL, output, count);
@@ -1737,7 +1737,7 @@ double executarTesteUmMilhao(int sort, int seed) {
     }
     else if (sort == 8) {
         ChaveValor output[DEZMIL + 1];
-        int count[99999999];
+        int count[10];
 
         t = clock();
         radixsortORG(arrOne, DEZMIL, output, count);
